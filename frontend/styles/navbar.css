@@ -1,0 +1,81 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-family:  "Roboto", sans-serif;
+    background-color: white;
+}
+#navbar{
+    border:1px solid black;
+    width:100%;
+    height:100px;
+    position: fixed;
+    z-index:2;
+    top:0;
+}
+/* s-nav css */
+#s-nav{
+    
+    width:100%;
+    height:20%;
+}
+#sub{
+   
+    width:50%;
+    padding:2px;
+    height:80%;
+    float: right;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+/* b-nav css */
+#b-nav{
+    width:100%;
+    height:80%;
+    border:1px solid red;
+    display:flex;
+    justify-content: space-between;
+}
+#b-nav>div:nth-child(1){
+    width:50%;
+    height:100%;
+    border:1px solid blue;
+    display:flex;
+}
+#b-nav>div:nth-child(1)>div:nth-child(1){
+    width:30%;
+    height:100%;
+    border:1px solid black;
+    margin: auto;
+}
+#b-nav>div:nth-child(1)>div:nth-child(2){
+    width:70%;
+    height:100%;
+    border:1px solid black;
+    margin: auto;
+}
+#b-nav>div:nth-child(1)>div img{
+    width:100%;
+    height: 100%;
+}
+
+/* searchbar */
+#form{
+    width:100%;
+    height:100%;
+}
+#form>div>input{
+    position:relative;
+    width:90%;
+    height:100%;
+    border:none;
+    background-color:#ECEFF1;
+    padding-left: 15px;
+}
+#form>div{
+    width:90%;
+    height:60%;
+    margin-top:15px;
+    margin-left:15px;
+    background-color:#ECEFF1;
+}
