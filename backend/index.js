@@ -9,6 +9,9 @@ const {productRoute}=require('./Routes/product.routes')
 const {userRouter}=require("./routes/User.routes")
 const {authenticate}=require("./middlewares/authenticate.middleware")
 
+const {adminrouter}=require("./routes/admin.route")
+
+
 require("dotenv").config();
 const cors=require("cors")
 
@@ -24,8 +27,9 @@ const server=http.createServer(app);
 app.use("/product",productRoute)
 
 app.use("/users",userRouter)
-app.use(authenticate)
+//app.use(authenticate)
 
+app.use("/admin",adminrouter)
 
 
 server.listen(process.env.PORT,async()=>{
