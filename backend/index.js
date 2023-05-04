@@ -1,11 +1,12 @@
 const express=require('express');
 const app=express();
+app.use(express.json());
 const http=require('http');
 const  connection  = require('./db');
-const productRoute=require('./Models/product.model')
+const {productRoute}=require('./Routes/product.routes')
 require("dotenv").config();
 
-app.use(express.json());
+
 
 const server=http.createServer(app);
 

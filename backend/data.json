@@ -1,0 +1,158 @@
+[
+   
+    {
+    "name": "Delectable Pastry Combo",
+    "image": "https://assets.winni.in/product/primary/2022/11/77620.jpeg?dpr=1&w=400",
+    "price":649,
+    "category": "pastry",
+    "description":{
+            "Flavor": "Truffle, Blackforest, Pineapple",
+            "Number_of_item": 6,
+            "Type_of_pastry": "Cream",
+            "Type_of_Cream": "Truffle (Truffle), Blackforest, Pineapple(Vanilla)"
+    
+    }
+    
+    },
+    {
+        "name": "Vanilla Pastry",
+        "image": "https://assets.winni.in/product/primary/2022/8/72503.jpeg?dpr=1&w=400",
+        "price":599,
+        "category": "pastry",
+        "description":{
+"Flavor": "Vanilla",
+"Number_of_item": 6,
+"Type_of_pastry": "Cream",
+"Type_of_Cream": "Vanilla"
+        
+        }
+        
+ },
+ {
+     "name": "Delightful Pastry Cupcake",
+     "image": "https://assets.winni.in/product/primary/2022/11/78202.jpeg?dpr=1&w=400",
+     "price":699,
+     "category": "pastry",
+     "description":{
+    "Flavor": " Red velvet, Pineapple, Blueberry",
+    "Number_of_item": 6,
+    "Type_of_pastry": "Cream",
+    "Type_of_Cream": "Vanilla"
+            
+            }
+            
+            },
+{
+    "name": "Fantastic Surprise Pastry",
+    "image": "https://assets.winni.in/product/primary/2022/11/77638.jpeg?dpr=1&w=400",
+    "price":599,
+    "category": "pastry",
+    "description":{
+        "Flavor": "Pineapple, Truffle, Butterscotch",
+        "Number_of_item": 6,
+        "Type_of_pastry": "Cream",
+        "Type_of_Cream": "Truffle (Truffle), Butterscotch (Vanilla), Pineapple(Vanilla)"
+
+}
+
+},
+{
+    "name": "Chocolate Pastry",
+    "image": "https://assets.winni.in/product/primary/2022/11/79735.jpeg?dpr=1&w=400",
+    "price":499,
+    "category": "pastry",
+    "description":{
+            "Flavor": "Chocolate",
+            "Number_of_item": 6,
+            "Type_of_pastry": "Cream",
+            "Type_of_Cream": "Truffle"
+    
+    }
+    
+    },
+    {
+        "name": "Ferrero Rocher Choco Truffle Pastry",
+        "image": "https://assets.winni.in/groot/2023/03/13/desktop/spinner-two.gif",
+        "price":1049,
+        "category": "pastry",
+        "description":{
+"Flavor": " Ferrero Rocher Choco Truffle",
+"Number_of_item": 6,
+"Type_of_pastry": "Truffle Cream",
+"Type_of_Cream": "Chocolate"
+        
+        }
+        
+        },
+        {
+            "name": "Vanilla Fruit Pastry",
+            "image": "https://assets.winni.in/groot/2023/03/13/desktop/spinner-two.gif",
+            "price":749,
+            "category": "pastry",
+            "description":{
+    "Flavor": " Vanilla Fruit Pastry",
+    "Number_of_item": 6,
+    "Type_of_pastry": "Cream",
+    "Type_of_Cream": "Vanilla"
+            
+            }
+            
+            },
+            {
+"name": "Red Velvet Pastry",
+"image": "https://assets.winni.in/groot/2023/03/13/desktop/spinner-two.gif",
+"price":799,
+"category": "pastry",
+"description":{
+        "Flavor": " Red Velvet ",
+        "Number_of_item": 6,
+        "Type_of_pastry": "Cream",
+        "Type_of_Cream": "Cream"
+
+}
+
+},
+{
+    "name": "Pineapple Pastry",
+    "image": "https://assets.winni.in/product/primary/2022/8/72519.jpeg?dpr=1&w=400",
+    "price":599,
+    "category": "pastry",
+    "description":{
+            "Flavor": "Pineapple Pastry",
+            "Number_of_item": 6,
+            "Type_of_pastry": "Cream",
+            "Type_of_Cream": "Vanilla"
+    
+    }
+    
+    },
+    {
+        "name": "Kitkat Truffle Pastry",
+        "image": "https://assets.winni.in/product/primary/2022/10/76727.jpeg?dpr=1&w=400",
+        "price":399,
+        "category": "pastry",
+        "description":{
+             "Flavor": "Kitkat Truffle Pastry",
+              "Number_of_item": 6,
+              "Type_of_pastry": " Chocolate Cream",
+              "Type_of_Cream": "Truffle"
+        
+        }
+        
+        },
+        {
+            "name": "Butterscotch Pastry",
+            "image": "https://assets.winni.in/product/primary/2022/8/72499.jpeg?dpr=1&w=400",
+            "price":649,
+            "category": "pastry",
+            "description":{
+    "Flavor": "Butterscotch",
+    "Number_of_item": 6,
+    "Type_of_pastry": "Cream",
+    "Type_of_Cream": "Vanilla"
+            
+            }
+            
+        }
+]
+    
