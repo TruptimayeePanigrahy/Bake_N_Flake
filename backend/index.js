@@ -4,6 +4,7 @@ const http=require('http');
 const  connection  = require('./db');
 const {userRouter}=require("./routes/User.routes")
 const {authenticate}=require("./middlewares/authenticate.middleware")
+const {adminrouter}=require("./routes/admin.route")
 require("dotenv").config();
 const cors=require("cors")
 
@@ -18,8 +19,9 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/users",userRouter)
-app.use(authenticate)
+//app.use(authenticate)
 
+app.use("/admin",adminrouter)
 
 
 server.listen(process.env.PORT,async()=>{
