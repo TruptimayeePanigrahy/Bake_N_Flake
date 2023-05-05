@@ -371,6 +371,43 @@
     width:30px;
     height: 30px;
 }
+#photo{
+    width:95%;
+    height:350px;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    margin-bottom: 30px;
+}
+#photo>img{
+    width:48%;
+    height:100%;
+    border-radius: 10px;
+}
+
+#newbox{
+    width:95%;
+    height:80px;
+    margin: auto;
+    display:flex;
+    justify-content: space-around;
+}
+#newbox>div{
+   display:flex;
+   justify-content: space-between;
+   width:22%;
+   
+}
+#newbox>div>img{
+    width:40%;
+    height:90%;
+}
+#newbox>div>div{
+    margin: auto;
+}
+#newbox>div>div>h3:nth-child(1){
+    color:#F50057
+}
 /* footer css */
 
 #heading{
