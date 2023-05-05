@@ -2,8 +2,9 @@ const express=require('express');
 const productRoute=express.Router()
 const ProductModel=require("../Models/product.model")
 
-productRoute.get("/",async(req,res)=>{
-    let product=await ProductModel.find().skip().limit(10);
+productRoute.get("/:pageNo",async(req,res)=>{
+    const {pageNo}=req.params
+    let product=await ProductModel.find().skip((pageNo-1)*10).limit(10);
     res.send(product)
 })
 
