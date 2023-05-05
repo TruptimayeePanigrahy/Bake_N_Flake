@@ -230,6 +230,23 @@
     
     margin-top:20px;
 }
+#left{
+    width:35%;
+    height:25%;
+   
+    float:left;
+    background-color:#1A237E; ;
+}
+#left>div{
+    width:100%;
+    height:100%;
+    background-color:#1A237E;
+}
+#left>div>img{
+    width:40%;
+    margin-top: 20px;
+    margin-left: 20px;
+}
 #right{
     width:35%;
     height:25%;
