@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<style>
+     body{
+         background: url(cake4.jpg);
+         background-size: cover;
+         background-position: center;
+         font-family: sans-serif;
+       }
+     #container{
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          border: 1px solid white;
+          background: url(back_image2.jpg);
+          background-size: cover;
+          background-position: center;
+          height: 530px;
+          width: 35%;
+          margin: auto;
+          margin-top: 40px;
+          border-radius: 15px;
+        }
+        #container>h1{
+            text-align: center;
+            font-size: 60px;
+            font-weight: 100;
+            margin-top: 10px;
+        }
+        #container>input{
+            margin: auto;
+            display: block;
+            padding: 9px;
+            width: 75%;
+            border-radius: 5px;
+        }
+        #container>button{
+            margin: auto;
+            display: block;
+            width: 80%;
+            padding: 9px;
+            /* border: none; */
+            font-size: 23px;
+            background-color: #FF3378;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        #container>p{
+            text-align: center;
+            margin-top: -10px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+         h2{
+            margin-top: 30px;
+            text-align: center;
+         }
+
+         hr{
+            margin-top: 40px;
+         }
+
+         h4{
+            margin-top: 30px;
+            text-align: center;
+            font-size: 20px;
+            margin-top: 15px;
+         }
+
+         h3{
+            text-align: center;
+            font-size: 20px;
+            margin-top: -15px;
+         }
+
+         span{
+            color: blue;
+         }
+
+         #container>p{
+            font-size: 13px;
+            margin-top: 12px;
+         }
+
+         .last{
+            width: 95%;
+            margin: auto;
+            height: 65px;
+            border-radius: 20px;
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+         }
+         .last>div{
+            height: auto;
+            width: 100%;
+            border-radius: 20px;
+         }
+         .first{
+            display: flex;
+            height: auto;
+            width: 100%;
+            border-radius: 20px;
+         }
+         .first>div{
+            height: auto;
+            width: 100%;
+            border-radius: 20px;
+         }
+         .first>div>img{
+            color: white;
+            margin-top: 18px;
+            margin-left: 25px;
+            width: 32px;
+         }
+         .first>div>p{
+           font-size: 13px;
+         }
+</style>
+<body>
+    <div id="container">
+        <h1 class="log">Login</h1>
+        
+        <input type="text" id="email" placeholder="Enter Your Email...">
+        <br>
+        <input type="password" id="pass" placeholder="password...">
+        <br>
+        <p>By continuing, you agree to Winni <span> Terms of Use </span> and <span> Privacy Policy.</span></p>
+        <button onclick="onLogin()">CONTINUE</button>
+        <hr>
+
+        <h4>OR Continue with</h4>
+
+        <h3>User does not SignUp ? <a href="./signup.html"><span> SignUp</span></a></h3>
+
+        <div class="last">
+           <div class="first">
+              <div>
+                <img src="https://assets.winni.in/groot/2023/01/31/icons/logincart.png" alt="">
+              </div>
+              <div>
+                <p>Instant Checkout</p>
+              </div>
+           </div>
+           <div class="first">
+            <div>
+              <img src="https://assets.winni.in/groot/2023/01/31/icons/logindiscount.png" alt="">
+            </div>
+            <div>
+              <p>Exclusive Offers</p>
+            </div>
+         </div>
+         <div class="first">
+            <div>
+              <img src="https://assets.winni.in/groot/2023/01/31/icons/loginbox.png" alt="">
+            </div>
+            <div>
+              <p>Manage Your Orders</p>
+            </div>
+         </div>
+        </div>
+
+    </div>
+</body>
+</html>
+
+<script>
+    const onLogin=()=>{
+        const payload={
+        email:document.getElementById("email").value,
+        pass:document.getElementById("pass").value
+         
+        }
+        fetch("http://localhost:8080/users/login",{
+        // fetch("http://localhost:8080/users/login",{
+            method:"POST",
+            headers:{
+                "Content-type":"application/json"
+            },
+            body: JSON.stringify(payload)
+        }).then(res=>res.json())
+        .then(res=>{
+            if(res.msg=="Logged in"){
+                // alert("Login Successfull")
+                if(document.getElementById("email").value!="" && document.getElementById("pass").value!=""){
+            alert("Login Successfull") 
+            window.location.href="index.html"
+        }
+        else{
+            alert("Enter email and passaword")
+        }
+
+     }
+            else{
+                alert("Login Failed")
+            }
+            // console.log(res)
+            
+            localStorage.setItem("token",res.token)
+        })
+        .then(err=>console.log(err))
+        // .then(err=>alert("Login Failed"))
+        
+
+    }
+</script>
