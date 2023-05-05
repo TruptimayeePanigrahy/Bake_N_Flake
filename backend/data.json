@@ -1,125 +1,13 @@
 [
    
     {
-    "name": "Delectable Pastry Combo",
-    "image": "https://assets.winni.in/product/primary/2022/11/77620.jpeg?dpr=1&w=400",
-    "price":649,
-    "category": "pastry",
+    "name": "Blackforest Cute Kitty Cake",
+    "image": "https://assets.winni.in/product/primary/2021/8/53340.jpeg?dpr=1&w=400",
+    "price":1749,
+    "category": "Fondant Cake",
     "description":{
-            "Flavor": "Truffle, Blackforest, Pineapple",
-            "Number_of_item": 6,
-            "Type_of_pastry": "Cream",
-            "Type_of_Cream": "Truffle (Truffle), Blackforest, Pineapple(Vanilla)"
-    
-    }
-    
-    },
-    {
-        "name": "Vanilla Pastry",
-        "image": "https://assets.winni.in/product/primary/2022/8/72503.jpeg?dpr=1&w=400",
-        "price":599,
-        "category": "pastry",
-        "description":{
-"Flavor": "Vanilla",
-"Number_of_item": 6,
-"Type_of_pastry": "Cream",
-"Type_of_Cream": "Vanilla"
-        
-        }
-        
- },
- {
-     "name": "Delightful Pastry Cupcake",
-     "image": "https://assets.winni.in/product/primary/2022/11/78202.jpeg?dpr=1&w=400",
-     "price":699,
-     "category": "pastry",
-     "description":{
-    "Flavor": " Red velvet, Pineapple, Blueberry",
-    "Number_of_item": 6,
-    "Type_of_pastry": "Cream",
-    "Type_of_Cream": "Vanilla"
-            
-            }
-            
-            },
-{
-    "name": "Fantastic Surprise Pastry",
-    "image": "https://assets.winni.in/product/primary/2022/11/77638.jpeg?dpr=1&w=400",
-    "price":599,
-    "category": "pastry",
-    "description":{
-        "Flavor": "Pineapple, Truffle, Butterscotch",
-        "Number_of_item": 6,
-        "Type_of_pastry": "Cream",
-        "Type_of_Cream": "Truffle (Truffle), Butterscotch (Vanilla), Pineapple(Vanilla)"
-
-}
-
-},
-{
-    "name": "Chocolate Pastry",
-    "image": "https://assets.winni.in/product/primary/2022/11/79735.jpeg?dpr=1&w=400",
-    "price":499,
-    "category": "pastry",
-    "description":{
-            "Flavor": "Chocolate",
-            "Number_of_item": 6,
-            "Type_of_pastry": "Cream",
-            "Type_of_Cream": "Truffle"
-    
-    }
-    
-    },
-    {
-        "name": "Ferrero Rocher Choco Truffle Pastry",
-        "image": "https://assets.winni.in/groot/2023/03/13/desktop/spinner-two.gif",
-        "price":1049,
-        "category": "pastry",
-        "description":{
-"Flavor": " Ferrero Rocher Choco Truffle",
-"Number_of_item": 6,
-"Type_of_pastry": "Truffle Cream",
-"Type_of_Cream": "Chocolate"
-        
-        }
-        
-        },
-        {
-            "name": "Vanilla Fruit Pastry",
-            "image": "https://assets.winni.in/groot/2023/03/13/desktop/spinner-two.gif",
-            "price":749,
-            "category": "pastry",
-            "description":{
-    "Flavor": " Vanilla Fruit Pastry",
-    "Number_of_item": 6,
-    "Type_of_pastry": "Cream",
-    "Type_of_Cream": "Vanilla"
-            
-            }
-            
-            },
-            {
-"name": "Red Velvet Pastry",
-"image": "https://assets.winni.in/groot/2023/03/13/desktop/spinner-two.gif",
-"price":799,
-"category": "pastry",
-"description":{
-        "Flavor": " Red Velvet ",
-        "Number_of_item": 6,
-        "Type_of_pastry": "Cream",
-        "Type_of_Cream": "Cream"
-
-}
-
-},
-{
-    "name": "Pineapple Pastry",
-    "image": "https://assets.winni.in/product/primary/2022/8/72519.jpeg?dpr=1&w=400",
-    "price":599,
-    "category": "pastry",
-    "description":{
-            "Flavor": "Pineapple Pastry",
-            "Number_of_item": 6,
+            "Flavor": "Vanilla  Cake ",
+            "Number_of_item": 1,
             "Type_of_pastry": "Cream",
             "Type_of_Cream": "Vanilla"
     
@@ -127,32 +15,200 @@
     
     },
     {
-        "name": "Kitkat Truffle Pastry",
-        "image": "https://assets.winni.in/product/primary/2022/10/76727.jpeg?dpr=1&w=400",
-        "price":399,
-        "category": "pastry",
+        "name": "Heaven Unicorn cake",
+        "image": "https://assets.winni.in/product/primary/2021/8/53304.jpeg?dpr=1&w=400",
+        "price":1999,
+        "category": "Fondant Cake",
         "description":{
-             "Flavor": "Kitkat Truffle Pastry",
-              "Number_of_item": 6,
-              "Type_of_pastry": " Chocolate Cream",
-              "Type_of_Cream": "Truffle"
+"Flavor": "Fondant Year Pineapple",
+"Number_of_item": 1,
+"Type_of_pastry": "Fondant Cake",
+"Type_of_Cream": "Vanilla"
+        
+        }
+        
+ },
+ {
+     "name": "Crazy Batman Fondant Cakee",
+     "image": "https://assets.winni.in/product/primary/2014/8/37554.jpeg?dpr=1&w=400",
+     "price":1799,
+     "category": "Fondant Cake",
+     "description":{
+    "Flavor": "Black Forest",
+    "Number_of_item": 1,
+    "Type_of_pastry": "Chocolate",
+    "Type_of_Cream": "Vanilla"
+            
+            }
+            
+            },
+{
+    "name": "Super Hero Avengers Cake",
+    "image": "https://assets.winni.in/product/primary/2022/8/72701.jpeg?dpr=1&w=400",
+    "price":2499,
+    "category": "Fondant Cake",
+    "description":{
+        "Flavor": "Pineapple",
+        "Number_of_item": 1,
+        "Type_of_pastry": "Fondant Cake",
+        "Type_of_Cream": "Vanilla"
+
+}
+
+},
+{
+    "name": "Floral Beautified White Unicorn Cake",
+    "image": "https://assets.winni.in/product/primary/2021/8/53312.jpeg?dpr=1&w=400",
+    "price":1799,
+    "category": "Fondant Cake",
+    "description":{
+            "Flavor": "Black Forest",
+            "Number_of_item": 1,
+            "Type_of_pastry": "Cream",
+            "Type_of_Cream": "Vanilla"
+    
+    }
+    
+    },
+    {
+        "name": "Adorable Panda Cake For Toddler",
+        "image": "https://assets.winni.in/product/primary/2014/8/44480.jpeg?dpr=1&w=400",
+        "price":3549,
+        "category": "Fondant Cake",
+        "description":{
+"Flavor": "Pineapple",
+"Number_of_item": 1,
+"Type_of_pastry": "Vanilla Cream",
+"Type_of_Cream": "Vanilla"
         
         }
         
         },
         {
-            "name": "Butterscotch Pastry",
-            "image": "https://assets.winni.in/product/primary/2022/8/72499.jpeg?dpr=1&w=400",
-            "price":649,
-            "category": "pastry",
+            "name": "Nescafe Fondant Birthday Cake",
+            "image": "https://assets.winni.in/product/primary/2021/9/53551.jpeg?dpr=1&w=400",
+            "price":1849,
+            "category": "Fondant Cake",
             "description":{
-    "Flavor": "Butterscotch",
-    "Number_of_item": 6,
-    "Type_of_pastry": "Cream",
+    "Flavor": "Pineapple",
+    "Number_of_item": 1,
+    "Type_of_pastry": "Fondant Cake",
     "Type_of_Cream": "Vanilla"
             
             }
             
-        }
+            },
+            {
+"name": "Lion Face Cake Theme",
+"image": "https://assets.winni.in/product/primary/2022/8/72711.jpeg?dpr=1&w=400",
+"price":1999,
+"category": "Fondant Cake",
+"description":{
+        "Flavor": "Vanilla",
+        "Number_of_item": 1,
+        "Type_of_pastry": "Cream",
+        "Type_of_Cream": "Cream"
+
+}
+
+},
+            {
+"name": "Blooming Love Vanilla Cake",
+"image": "https://assets.winni.in/product/primary/2014/6/34121.jpeg?dpr=1&w=400",
+"price":1899,
+"category": "Fondant Cake",
+"description":{
+        "Flavor": "Vanilla",
+        "Number_of_item": 1,
+        "Type_of_pastry": "Cream",
+        "Type_of_Cream": "Cream"
+
+}
+
+},
+            {
+"name": "Mickey mouse welcome cake",
+"image": "https://assets.winni.in/product/primary/2021/9/53464.jpeg?dpr=1&w=400",
+"price":2799,
+"category": "Fondant Cake",
+"description":{
+        "Flavor": "Vanilla",
+        "Number_of_item": 1,
+        "Type_of_pastry": "Vanilla",
+        "Type_of_Cream": "Vanilla"
+
+}
+
+},
+            {
+"name": "Masha And Bear Cake",
+"image": "https://assets.winni.in/product/primary/2022/8/72709.jpeg?dpr=1&w=400",
+"price":2499,
+"category": "Fondant Cake",
+"description":{
+        "Flavor": "Vanilla",
+        "Number_of_item": 1,
+        "Type_of_pastry": "Vanilla",
+        "Type_of_Cream": "Vanilla"
+
+}
+
+},
+            {
+"name": "Fairy Tale Unicorn Cake",
+"image": "https://assets.winni.in/product/primary/2021/8/53306.jpeg?dpr=1&w=400",
+"price":3649,
+"category": "Fondant Cake",
+"description":{
+        "Flavor": "Black-Forest ",
+        "Number_of_item": 1,
+        "Type_of_pastry": "Chocolate",
+        "Type_of_Cream": "Vanilla"
+
+}
+
+},
+            {
+"name": "Hello Minion Cake",
+"image": "https://assets.winni.in/product/primary/2014/6/33972.jpeg?dpr=1&w=400",
+"price":1899,
+"category": "Fondant Cake",
+"description":{
+        "Flavor": "Pineapple",
+        "Number_of_item": 1,
+        "Type_of_pastry": "Pineapple",
+        "Type_of_Cream": "Cream"
+
+}
+
+},
+            {
+"name": "Love Little Heart Cake",
+"image": "https://assets.winni.in/product/primary/2022/2/57905.jpeg?dpr=1&w=400",
+"price":1899,
+"category": "Fondant Cake",
+"description":{
+        "Flavor": "Pineapple",
+        "Number_of_item": 1,
+        "Type_of_pastry": "Pineapple",
+        "Type_of_Cream": "Vanilla"
+
+}
+
+},
+            {
+"name": "Avengers  Cake",
+"image": "https://assets.winni.in/product/primary/2014/8/37547.jpeg?dpr=1&w=400",
+"price":2499,
+"category": "Fondant Cake",
+"description":{
+        "Flavor": "Vanilla",
+        "Number_of_item": 1,
+        "Type_of_pastry": "Cream",
+        "Type_of_Cream": "Vanilla"
+
+}
+
+}
 ]
     
