@@ -257,6 +257,18 @@
     margin-bottom:15px;
 }
 
+
+
+/* sliders */
+#slider{
+    width:100%;
+    height:350px;
+}
+#slider>img{
+    width:100%;
+    height:100%;
+}
+
 /* footer css */
 
 #heading{
