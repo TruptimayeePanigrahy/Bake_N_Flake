@@ -247,3 +247,7 @@
     display: flex;
     
 }
+#right>div>div{
+    font-size: 20px;
+    margin-right:40px;
+}
