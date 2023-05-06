@@ -1,0 +1,30 @@
+/* append cards  */
+
+#card{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:20px;
+    /* border: 1px solid red; */
+    width:70%;
+    margin: auto;
+    margin-top: 30px;
+  }
+  #card>div{
+    /* border: 1px solid red; */
+    padding-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  }
+  
+  #card>div img{
+    display: flex;
+    width:90%;
+    margin: auto;
+     padding-top:20px;  
+  }
+  #card>div h3{
+    padding-left: 20px;
+  }
+  #card>div p{
+    padding-left: 20px;
+  }

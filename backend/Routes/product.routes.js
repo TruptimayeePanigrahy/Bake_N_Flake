@@ -3,7 +3,7 @@ const productRoute=express.Router()
 const ProductModel=require("../Models/product.model")
 
 productRoute.get("/",async(req,res)=>{
-    let product=await ProductModel.find().skip().limit(10);
+    let product=await ProductModel.find().skip().limit();
     res.send(product)
 })
 
