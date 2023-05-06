@@ -48,3 +48,13 @@ if(val1==arr1.length) val1=0;
      }
      
     });
+
+    //profile name;
+    let username=localStorage.getItem("")
+    let welcome=document.getElementById("welcome")
+    let user=document.getElementById("user")
+
+    if(username){
+      welcome.innerText="Welcome"
+      user.innerText=username
+    }
