@@ -403,7 +403,16 @@ body {
 	color: var(--dark);	
 }
 
-
+/* .btn{
+	outline: none;
+	border: none;
+	cursor: pointer;
+	background-color: white;
+}
+.btn.dark{
+	background-color: #060714;
+	color: white;
+} */
 
 
 
