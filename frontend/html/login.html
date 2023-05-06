@@ -37,6 +37,7 @@
             padding: 9px;
             width: 75%;
             border-radius: 5px;
+            outline: none;
         }
         #container>button{
             margin: auto;
@@ -69,8 +70,11 @@
          h4{
             margin-top: 30px;
             text-align: center;
-            font-size: 20px;
+            font-size: 22px;
             margin-top: 15px;
+            color: red;
+            outline: none;
+            text-decoration: none;
          }
 
          h3{
@@ -135,7 +139,9 @@
         <button onclick="onLogin()">CONTINUE</button>
         <hr>
 
-        <h4>OR Continue with</h4>
+        <!-- <h4>OR Continue with</h4> -->
+
+        <a href="http://localhost:8080/auth/google"><h4>Continue with google</h4></a>
 
         <h3>User does not SignUp ? <a href="./signup.html"><span> SignUp</span></a></h3>
 

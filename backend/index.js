@@ -11,12 +11,11 @@ const {authenticate}=require("./middlewares/authenticate.middleware")
 
 const {adminrouter}=require("./routes/admin.route")
 
+const passport=require("./google_auth")
+
 
 require("dotenv").config();
 const cors=require("cors")
-
-
-
 
 
 app.use(express.json());
@@ -30,6 +29,29 @@ app.use("/users",userRouter)
 //app.use(authenticate)
 
 app.use("/admin",adminrouter)
+
+
+app.get("/", (req,res)=>{
+    res.send("okkkkkkk")
+})
+
+
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile','email'] }));
+
+app.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login', session:false }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    console.log(req.user);
+    res.redirect("http://127.0.0.1:5501/frontend/html/index.html");
+
+  });
+
+  app.get("/login",(req,res)=>{
+    res.sendFile(__dirname+ "/index.html")
+    })
+
 
 
 server.listen(process.env.PORT,async()=>{
