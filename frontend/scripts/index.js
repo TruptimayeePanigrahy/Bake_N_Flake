@@ -29,3 +29,22 @@ document.getElementById("small-slider").append(img);
 val1++;
 if(val1==arr1.length) val1=0;
 },3000);
+
+
+// search
+    let text= document.getElementById("input");
+    let search=document.getElementById("search")
+     search.addEventListener("click",(e)=>{
+      e.preventDefault()
+    let SearchInp= text.value;
+     if(SearchInp=="cakes"){
+        window.location.href="./cakes.html"
+     }
+     else if(SearchInp=="gifts"){
+        window.location.href="./gifts.html"
+     }
+     else if(SearchInp=="flowers"){
+        window.location.href="./flowers.html"
+     }
+     
+    });
