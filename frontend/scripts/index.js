@@ -65,6 +65,13 @@ if(val1==arr1.length) val1=0;
       
     }
 
+    if(btn.innerText=="Logout"){
+      btn.addEventListener("click",()=>{
+         localStorage.clear();
+         window.location.href="./index.html"
+      })
+    }
+
     
     
     
