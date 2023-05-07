@@ -5,8 +5,8 @@ const http=require('http');
 const  connection  = require('./db');
 
 const {productRoute}=require('./Routes/product.routes')
-
-const {userRouter}=require("./routes/User.routes")
+const {cartRoutes}=require('./Routes/cart.routes')
+const {userRouter}=require("./Routes/User.routes")
 const {authenticate}=require("./middlewares/authenticate.middleware")
 
 const {adminrouter}=require("./routes/admin.route")
@@ -27,6 +27,7 @@ app.use("/product",productRoute)
 
 app.use("/users",userRouter)
 //app.use(authenticate)
+app.use("/cart",authenticate,cartRoutes)
 
 app.use("/admin",adminrouter)
 
