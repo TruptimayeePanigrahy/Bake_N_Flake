@@ -128,6 +128,18 @@
    
 }
 
+#menucontent2{
+    display:none;
+    position:absolute;
+    min-width:50px;
+    min-height:30px;;
+    z-index:1;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    top:50px;
+    left:10px;
+   
+}
+
 
 
 /* small_navbar */

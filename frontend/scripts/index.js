@@ -38,7 +38,7 @@ if(val1==arr1.length) val1=0;
       e.preventDefault()
     let SearchInp= text.value;
      if(SearchInp=="cakes"){
-        window.location.href="./cakes.html"
+        window.location.href="./cake.html"
      }
      else if(SearchInp=="gifts"){
         window.location.href="./gifts.html"
@@ -50,11 +50,27 @@ if(val1==arr1.length) val1=0;
     });
 
     //profile name;
-    let username=localStorage.getItem("")
+    let username=localStorage.getItem("token")
     let welcome=document.getElementById("welcome")
     let user=document.getElementById("user")
 
     if(username){
-      welcome.innerText="Welcome"
-      user.innerText=username
+      welcome.innerText="Welcome";
+      user.innerText=username;
     }
+
+    //profile dropdown
+    let dropdown=document.getElementById("dropdown1")
+    let login=document.getElementById("menucontent1")
+    let logout=document.getElementById("menucontent2")
+
+   if(user.innertext===username){
+      dropdown.addEventListener("mouseenter",()=>{
+         logout.style.display="block"
+      })
+   }
+    
+   let cake=document.getElementById("cake")
+   cake.addEventListener("click",()=>{
+      window.location.href="./cake.html"
+   })
