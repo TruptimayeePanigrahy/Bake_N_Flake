@@ -67,8 +67,22 @@ if(val1==arr1.length) val1=0;
 
     if(btn.innerText=="Logout"){
       btn.addEventListener("click",()=>{
-         localStorage.clear();
-         window.location.href="./index.html"
+         fetch("http://localhost:8080/users/logout")
+         .then(res=>res.json())
+         .then((data)=>{
+          //  console.log(data)
+            alert(data.msg)
+            localStorage.clear();
+            window.location.href="../html/index.html"
+         })
+         
+        
+      })
+    }
+    if(btn.innerText=="Signup/Login"){
+      btn.addEventListener("click",()=>{
+        // localStorage.clear();
+         window.location.href="../html/signup.html"
       })
     }
 

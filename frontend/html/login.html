@@ -398,11 +398,22 @@ span {
             body: JSON.stringify(payload)
         }).then(res=>res.json())
         .then(res=>{
+          console.log(res)
             if(res.msg=="Logged in"){
+             
                 // alert("Login Successfull")
                 if(document.getElementById("email").value!="" && document.getElementById("pass").value!=""){
             alert("Login Successfull") 
-            window.location.href="index.html"
+            console.log(res)
+            localStorage.setItem("token",res.token)
+            localStorage.setItem("name",res.name)
+            localStorage.setItem("img",res.image)
+            if(res.role=="Admin"){
+              window.location.href="admin.html"
+            }else{
+              window.location.href="index.html"
+            }
+            
         }
         else{
             alert("Enter email and passaword")
@@ -414,8 +425,7 @@ span {
             }
             // console.log(res)
             
-            localStorage.setItem("token",res.token)
-            localStorage.setItem("name",res.name)
+            
 
             console.log(res.name);
 

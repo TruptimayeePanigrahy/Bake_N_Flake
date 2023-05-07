@@ -4,7 +4,11 @@ const userSchema=mongoose.Schema({
    name: String,
    email: String,
    pass: String,
-   role:{type:String, default:"User",enum:["User","Admin"]}
+   role:{
+    type:String,
+     enum:["User","Admin"],
+     default:"User"
+    }
 })
 
 const UserModel=mongoose.model("user",userSchema)
