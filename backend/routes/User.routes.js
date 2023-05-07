@@ -7,7 +7,7 @@ const bcrypt=require("bcrypt")
 const {blacklist}=require("../models/blacklist")
 
 userRouter.post("/register",async(req,res)=>{
-    const {email,pass}=req.body
+    const {name,email,pass}=req.body
     try{
         const userpresent=await UserModel.findOne({email})
         if(userpresent){
@@ -16,7 +16,7 @@ userRouter.post("/register",async(req,res)=>{
         bcrypt.hash(pass,5,async(err, hash)=> {
             if(err) res.send({"msg":"Something went wrong","error":err.message})
             else{
-                const user=new UserModel({email,pass:hash})
+                const user=new UserModel({name,email,pass:hash})
                 await user.save()
                 res.send({"msg":"New Users has been registred"})
            }
