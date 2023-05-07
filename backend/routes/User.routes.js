@@ -38,7 +38,7 @@ userRouter.post("/login", async(req,res)=>{
         bcrypt.compare(pass, user[0].pass,(err, result)=>{
             if(result){
                 let token=jwt.sign({userID:user[0]._id},"masai")
-                res.send({"msg":"Logged in","token":token})
+                res.send({"msg":"Logged in","token":token,name:user[0].name})
             }else{
                 res.send({"msg":"wrong inform"})
             }
@@ -53,7 +53,7 @@ userRouter.post("/login", async(req,res)=>{
 })
 
 
-userRouter.get("/logout", authenticate,(req,res)=>{
+userRouter.get("/logout",(req,res)=>{
     blacklist.push(req.headers?.authorization?.split(" ")[1])
     res.send("logout successful")
     })
