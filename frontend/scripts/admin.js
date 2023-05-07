@@ -133,13 +133,14 @@ let heading=document.getElementById("adminheading")
 	
 	tr.append(td1,td2,td3,td4)
 	conatiner.append(tr)
+	
 	})
 	  }
   
   let adminbtn=document.querySelector(".btn")
 adminbtn.addEventListener("click",()=>{
 	displaydata()
-	
+	fun(element)
 })
 
 let productdata
@@ -193,7 +194,17 @@ conatiner.innerHTML=null
 	let td5=document.createElement("td")
 	
 	td5.innerText="Edit"
-	
+	// td5.setAttribute("id","edithere")
+	td5.addEventListener("click",()=>{
+		fun(element)
+		let myeditbox=document.getElementById("myedit")
+		if (myeditbox.style.display == "none") {
+			myeditbox.style.display = "block";
+		  } else {
+			myeditbox.style.display = "none";
+		  }
+	})
+
 	let td6=document.createElement("td")
     td6.innerText="Delete"
 	td6.addEventListener("click",()=>{
@@ -214,4 +225,163 @@ let allproduct=document.querySelector(".pro")
 
 allproduct.addEventListener("click",()=>{
 	displayproduct()
+})
+
+document.querySelector(".bx-plus").addEventListener('click',()=>{
+	let addbox=document.getElementById("myadd")
+	if (addbox.style.display == "none") {
+			addbox.style.display = "block";
+		  } else {
+			addbox.style.display = "none";
+		  }
+})
+
+
+// add products
+
+let addbox=document.getElementById("myadd")
+
+let addbutton=document.getElementById("addbtn")
+addbutton.addEventListener("click",()=>{
+	let nameinp=document.getElementById("name").value
+	let imginp=document.getElementById("img").value
+	let categoryinp=document.getElementById("Category").value
+	let priceinp=document.getElementById("price").value
+	let favinp=document.getElementById("fav").value
+	let iteminp=document.getElementById("item").value
+	let pastrytype=document.getElementById("typepa").value
+	let creamtype=document.getElementById("cream").value
+	let obj={
+		name:nameinp,
+		price:priceinp,
+		image:imginp,
+		category:categoryinp,
+		description:{
+			Flavor:favinp,
+			Number_of_item:iteminp,
+			Type_of_pastry:pastrytype,
+			Type_of_Cream:creamtype
+		}
+		
+
+	}
+fetch("http://localhost:8080/product/addproduct",{
+	method:"POST",
+	headers: {
+		
+		"content-type": "application/json",
+	  },
+	  body: JSON.stringify(obj),
+	})
+	  .then((res) => {
+	    return res.json();
+	  })
+	  .then((data) => {
+		console.log(data);
+		alert("Product added successfully!!");
+		addbox.style.display="none"
+		fetch("http://localhost:8080/product/")
+	.then((res) => {
+	  return res.json();
+	})
+	.then((data) => {
+	  console.log(data);
+	  productdata=data
+	   products(data);
+	//   searchbar(fetchdata)
+	  // page1(fetchdata)
+
+	})
+	.catch((err) => {
+	  console.log(err);
+	});
+	  })
+	  .catch((err) => {
+		console.log(err);
+	  });
+
+
+})
+
+// update products
+let id
+function fun(data){
+	let editname=document.getElementById("ename")
+	editname.value=data.name
+	let editimage=document.getElementById("eimg")
+	editimage.value=data.image
+
+	let ecategory=document.getElementById("ecategory")
+	ecategory.value=data.category
+	let editprice=document.getElementById("eprice")
+	editprice.value=data.price
+	let editfav=document.getElementById("efav")
+	editfav.value=data.description.Flavor
+	let edititem=document.getElementById("eitem")
+	edititem.value=data.description.Number_of_item
+	let editpastry=document.getElementById("epastry")
+	editpastry.value=data.description.Type_of_pastry
+	let editcream=document.getElementById("ecream")
+	editcream.value=data.description.Type_of_Cream
+	id=data._id
+	console.log(data,id)
+	
+}
+let editbox=document.getElementById("myedit")
+document.getElementById("editbtn").addEventListener("click",()=>{
+	let editname=document.getElementById("ename").value
+	let editimage=document.getElementById("eimg").value
+	let ecategory=document.getElementById("ecategory").value
+	let editprice=document.getElementById("eprice").value
+	let editfav=document.getElementById("efav").value
+	let editpastry=document.getElementById("epastry").value
+	let editcream=document.getElementById("ecream").value
+	let edititem=document.getElementById("eitem").value
+	let obj={
+		name:editname,
+		price:editprice,
+		image:editimage,
+		category:ecategory,
+		description:{
+			Flavor:editfav,
+			Number_of_item:edititem,
+			Type_of_pastry:editpastry,
+			Type_of_Cream:editcream
+		}
+	}
+
+	fetch(`http://localhost:8080/product/update/${id}`, {
+        method: "PATCH",
+        headers: {
+        //   authorization: localStorage.getItem("token"),
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(obj),
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((datas) => {
+          console.log(datas);
+          alert("Product updated successfully!!");
+		  editbox.style.display="none"
+		  fetch("http://localhost:8080/product/")
+	.then((res) => {
+	  return res.json();
+	})
+	.then((data) => {
+	  console.log(data);
+	  productdata=data
+	   products(data);
+	//   searchbar(fetchdata)
+	  // page1(fetchdata)
+
+	})
+	.catch((err) => {
+	  console.log(err);
+	});
+        })
+        .catch((err) => {
+          console.log(err);
+        });
 })

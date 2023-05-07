@@ -599,3 +599,166 @@ body {
 		min-width: 420px;
 	}
 }
+
+
+/* edit box */
+
+
+#myedit {
+	z-index: 100;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid red;
+	background-color: #e57e7b;
+	width: 70%;
+	padding: 30px;
+	text-align: center;
+	box-sizing: border-box;
+display: none;
+  }
+
+  #myedit p {
+	color: #541818;
+	font-size: 20px;
+	margin: 10px 0;
+  }
+
+  .table-row {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+  }
+
+  .table-row p {
+	margin: 0;
+	width: 120px;
+	font-weight: bold;
+  }
+
+  .table-row input {
+	flex-grow: 1;
+	padding: 5px;
+	border: none;
+	outline: none;
+	background-color: #fff;
+	border-radius: 4px;
+  }
+
+  .description {
+	margin-top: 20px;
+	text-align: center;
+  }
+
+  .description p {
+	margin: 5px 0;
+	font-weight: bold;
+  }
+
+  .small {
+	display: flex;
+	justify-content: space-around;
+	margin: 10px;
+	width: 100%;
+  }
+
+  .description .small p {
+	width: auto;
+  }
+  .small input {
+	padding: 10px 20px;
+  }
+  #editbtn {
+	background-color: #3c91e6;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	padding: 10px 20px;
+	margin-top: 30px;
+	font-weight: bold;
+	cursor: pointer;
+	display: block;
+	width: 150px;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  /* adding products */
+
+  #myadd {
+	z-index: 100;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid red;
+	background-color: #e57e7b;
+	width: 60%;
+	padding: 30px;
+	text-align: center;
+	box-sizing: border-box;
+	display: none;
+  }
+
+  #myadd p {
+	color: #541818;
+	font-size: 20px;
+	margin: 10px 0;
+  }
+
+  .table-row {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+  }
+
+  .table-row p {
+	margin: 0;
+	width: 120px;
+	font-weight: bold;
+  }
+
+  .table-row input {
+	flex-grow: 1;
+	padding: 5px;
+	border: none;
+	outline: none;
+	background-color: #fff;
+	border-radius: 4px;
+  }
+
+  .description {
+	margin-top: 20px;
+	text-align: center;
+  }
+
+  .description p {
+	margin: 5px 0;
+	font-weight: bold;
+  }
+
+  .small {
+	display: flex;
+	justify-content: space-around;
+	margin: 10px;
+	width: 100%;
+  }
+
+  .description .small p {
+	width: auto;
+  }
+
+  #addbtn {
+	background-color: #3c91e6;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	padding: 10px 20px;
+	margin-top: 30px;
+	font-weight: bold;
+	cursor: pointer;
+	display: block;
+	width: 150px;
+	margin-left: auto;
+	margin-right: auto;
+  }
