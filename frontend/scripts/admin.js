@@ -1,4 +1,7 @@
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+let photo=document.getElementById("adminimage");
+let imgok=localStorage.getItem("img");
+photo.src=imgok
 
 allSideMenu.forEach(item=> {
 	const li = item.parentElement;

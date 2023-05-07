@@ -3,25 +3,30 @@ const {UserModel}=require("../models/User.model")
 const {blacklist}=require("../models/blacklist")
 
 const authenticate = async(req, res, next) => {
-  try {
+ 
     const token = req.headers.authorization.split(' ')[1];
     if(blacklist.includes(token)){
       res.send('please log in again')
     }
     const decodedToken = jwt.verify(token, "masai");
-    const { userID } = decodedToken;
+   
 
+    if(decodedToken){
+      const { userID } = decodedToken;
+      const user = await UserModel.findById({_id:userID});
+      try{
+      if (!user) {
+         res.json({ message: 'Unauthorized' });
+      }
+      req.user = userID;
+      req.role=user.role;
   
-    const user = await UserModel.findById(userID);
-    if (!user) {
-       res.json({ message: 'Unauthorized' });
+      next();
+    } catch (error) {
+     res.json({ message: 'Unauthorized',err:error.message});
     }
-    req.user = user;
+    }
+   
+}
 
-    next();
-  } catch (error) {
-   res.json({ message: 'Unauthorized',err:error.message});
-  }
-};
-
-module.exports = {authenticate};
+module.exports = {authenticate}

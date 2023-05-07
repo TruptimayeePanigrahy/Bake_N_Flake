@@ -5,8 +5,8 @@ const http=require('http');
 const  connection  = require('./db');
 
 const {productRoute}=require('./Routes/product.routes')
-const {cartRoutes}=require('./Routes/cart.routes')
-const {userRouter}=require("./Routes/User.routes")
+const {cartRoutes}=require('./routes/cart.routes')
+const {userRouter}=require("./routes/User.routes")
 const {authenticate}=require("./middlewares/authenticate.middleware")
 
 const {adminrouter}=require("./routes/admin.route")
@@ -29,6 +29,7 @@ app.use("/users",userRouter)
 //app.use(authenticate)
 app.use("/cart",authenticate,cartRoutes)
 
+//app.use(authenticate)
 app.use("/admin",adminrouter)
 
 
@@ -37,17 +38,20 @@ app.get("/", (req,res)=>{
 })
 
 
-app.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile','email'] }));
-
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login', session:false }),
+app.get('/auth/google/',
+ 
   function(req, res) {
+   console.log(passport.authenticate('google', { scope: ['profile','email'] }))
     // Successful authentication, redirect home.
     console.log(req.user);
     res.redirect("http://127.0.0.1:5501/frontend/html/index.html");
-
   });
+
+// app.get('/auth/google/callback', 
+//   passport.authenticate('google', { failureRedirect: '/login', session:false }),
+ 
+
+//   );
 
   app.get("/login",(req,res)=>{
     res.sendFile(__dirname+ "/index.html")

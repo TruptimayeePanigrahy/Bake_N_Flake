@@ -4,7 +4,8 @@ const adminschema=mongoose.Schema({
     Image:String,
     name:String,
     mobile:String,
-    adress:String
+    adress:String,
+    email:String
 
 })
 
