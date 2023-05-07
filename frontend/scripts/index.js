@@ -50,25 +50,26 @@ if(val1==arr1.length) val1=0;
     });
 
     //profile name;
+
+
+    let token=localStorage.getItem("token")
+
     let username=localStorage.getItem("name")
     let welcome=document.getElementById("welcome")
     let user=document.getElementById("user")
-
-    if(username){
+    let btn=document.getElementById("btn")
+    if(username && token){
       welcome.innerText="Welcome";
       user.innerText=username;
+      btn.innerText="Logout"
+      
     }
 
-    //profile dropdown
-    let dropdown=document.getElementById("dropdown1")
-    let login=document.getElementById("menucontent1")
-    let logout=document.getElementById("menucontent2")
+    
+    
+    
 
-   if(user.innertext===username){
-      dropdown.addEventListener("mouseenter",()=>{
-         logout.style.display="block"
-      })
-   }
+   
     
    let cake=document.getElementById("cake")
    cake.addEventListener("click",()=>{
