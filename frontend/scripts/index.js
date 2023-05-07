@@ -50,7 +50,10 @@ if(val1==arr1.length) val1=0;
     });
 
     //profile name;
+
+
     let token=localStorage.getItem("token")
+
     let username=localStorage.getItem("name")
     let welcome=document.getElementById("welcome")
     let user=document.getElementById("user")

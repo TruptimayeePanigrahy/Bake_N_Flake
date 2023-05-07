@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>LOGIN</title>
 </head>
 <style>
-     body{
+     /* body{
          background: url(cake4.jpg);
          background-size: cover;
          background-position: center;
@@ -45,7 +45,7 @@
             width: 80%;
             padding: 9px;
             /* border: none; */
-            font-size: 23px;
+            /* font-size: 23px;
             background-color: #FF3378;
             border-radius: 20px;
             color: white;
@@ -125,7 +125,213 @@
          }
          .first>div>p{
            font-size: 13px;
-         }
+         } */ 
+
+
+body {
+  background: url(cake4.jpg);
+  background-size: cover;
+  background-position: center;
+  font-family: sans-serif;
+}
+
+#container {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 1px solid white;
+  background: url(back_image2.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 550px;
+  width: 35%;
+  margin: auto;
+  margin-top: 40px;
+  border-radius: 15px;
+}
+
+#container > h1 {
+  text-align: center;
+  font-size: 60px;
+  font-weight: 100;
+  margin-top: 10px;
+}
+
+#container > input {
+  margin: auto;
+  display: block;
+  padding: 9px;
+  width: 75%;
+  border-radius: 5px;
+  outline: none;
+}
+
+#container > button {
+  margin: auto;
+  display: block;
+  width: 80%;
+  padding: 9px;
+  /* border: none; */
+  font-size: 23px;
+  background-color: #FF3378;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+#container > p {
+  text-align: center;
+  margin-top: -10px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+h2 {
+  margin-top: 30px;
+  text-align: center;
+}
+
+hr {
+  margin-top: 40px;
+}
+
+h4 {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 22px;
+  margin-top: 15px;
+  color: red;
+  outline: none;
+  text-decoration: none;
+}
+
+h3 {
+  text-align: center;
+  font-size: 20px;
+  margin-top: -15px;
+}
+
+span {
+  color: blue;
+}
+
+#container > p {
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.last {
+  width: 95%;
+  margin: auto;
+  height: 65px;
+  border-radius: 20px;
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.last > div {
+  height: auto;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.first {
+  display: flex;
+  height: auto;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.first > div {
+  height: auto;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.first > div > img {
+  color: white;
+  margin-top: 18px;
+  margin-left: 25px;
+  width: 32px;
+}
+
+.first > div > p {
+  font-size: 13px;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 768px) {
+  #container {
+    width: 80%;
+    height: 600px;
+  }
+  
+  #container > h1 {
+    font-size: 40px;
+  }
+  
+  #container > input {
+    width: 90%;
+  }
+  
+  #container > button {
+    width: 90%;
+  }
+  
+  .last {
+    flex-wrap: wrap;
+    height: auto;
+  }
+    
+}
+/* Styles for screens up to 600px wide */
+@media screen and (max-width: 600px) {
+  #container {
+    width: 90%;
+  }
+  #container > h1 {
+    font-size: 40px;
+  }
+  #container > input,
+  #container > button {
+    width: 100%;
+  }
+  .first > div > img {
+    width: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .first > div > p {
+    font-size: 10px;
+  }
+}
+
+/* Styles for screens from 601px to 1200px wide */
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  #container {
+    width: 60%;
+  }
+  #container > h1 {
+    font-size: 50px;
+  }
+  .first > div > img {
+    width: 25px;
+    margin-top: 15px;
+    margin-left: 15px;
+  }
+}
+
+/* Styles for screens wider than 1200px */
+@media screen and (min-width: 1201px) {
+  #container {
+    width: 35%;
+  }
+  #container > h1 {
+    font-size: 60px;
+  }
+}
+
+
 </style>
 <body>
     <div id="container">
@@ -210,6 +416,8 @@
             
             localStorage.setItem("token",res.token)
             localStorage.setItem("name",res.name)
+
+
         })
         .then(err=>console.log(err))
         // .then(err=>alert("Login Failed"))

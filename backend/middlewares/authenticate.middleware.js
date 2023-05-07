@@ -1,21 +1,27 @@
-const jwt=require("jsonwebtoken")
+const jwt = require('jsonwebtoken');
+const {UserModel}=require("../models/User.model")
+const {blacklist}=require("../models/blacklist")
 
-const authenticate=(req,res,next)=>{
-    const token=req.headers.authorization
-    if(token){
-        jwt.verify(token,"masai",(err,decoded)=>{
-            if(decoded){
-                req.body.user=decoded.userID
-                next()
-            }else{
-                res.send({"msg":"Please Login"})
-            }
-        })
-    }else{
-        res.send({"msg":"Please Login"})
+const authenticate = async(req, res, next) => {
+  try {
+    const token = req.headers.authorization.split(' ')[1];
+    if(blacklist.includes(token)){
+      res.send('please log in again')
     }
-}
+    const decodedToken = jwt.verify(token, "masai");
+    const { userID } = decodedToken;
 
-module.exports={
-    authenticate
-}
+  
+    const user = await UserModel.findById(userID);
+    if (!user) {
+       res.json({ message: 'Unauthorized' });
+    }
+    req.user = user;
+
+    next();
+  } catch (error) {
+   res.json({ message: 'Unauthorized',err:error.message});
+  }
+};
+
+module.exports = {authenticate};
