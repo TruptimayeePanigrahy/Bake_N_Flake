@@ -8,7 +8,7 @@ const  connection  = require('./db');
 
 const {productRoute}=require('./Routes/product.routes')
 const {cartRoutes}=require("./Routes/cart.routes")
-const {userRouter}=require("./Routes/User.routes")
+const {userRouter}=require("./routes/User.routes")
 const {authenticate}=require("./middlewares/authenticate.middleware")
 
 const {adminrouter}=require("./Routes/admin.route")
@@ -24,6 +24,9 @@ app.use(express.json());
 app.use(cors())
 
 const server=http.createServer(app);
+
+const client_id="789acb1d19a1200bc377";
+const client_secret="46387986535050cab5d67b3e705162de8c030552"
 
 
 // razorpay routes please dont touch these routes
