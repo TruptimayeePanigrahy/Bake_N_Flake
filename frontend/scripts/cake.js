@@ -42,6 +42,10 @@ function display(data){
         price.innerText=element.price;
         
         child.append(card,title,price);
+        child.addEventListener("click",()=>{
+            localStorage.setItem("detailPage",JSON.stringify(element));
+            location.href="detail.html"
+        })
         parent.append(child);
     });
 }
