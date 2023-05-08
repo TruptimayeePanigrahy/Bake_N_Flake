@@ -91,9 +91,8 @@ app.use(authenticate)
 
 
 
-app.get("/", (req,res)=>{
-    res.send("okkkkkkk")
-})
+
+
 
 
 
