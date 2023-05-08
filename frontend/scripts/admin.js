@@ -393,10 +393,8 @@ document.getElementById("editbtn").addEventListener("click",()=>{
 let logoutbutton=document.querySelector(".logoutbtn")
 logoutbutton.addEventListener("click",()=>{
 	localStorage.clear();
-	alert("Admin Logout successfull!!")
+	alert("Admin Logout successfull!!!")
 	window.location.href="../html/index.html"
 
-
-	
 
 })
