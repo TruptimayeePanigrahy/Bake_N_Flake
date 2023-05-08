@@ -388,3 +388,12 @@ document.getElementById("editbtn").addEventListener("click",()=>{
           console.log(err);
         });
 })
+
+// logout
+let logoutbutton=document.querySelector(".logoutbtn")
+logoutbutton.addEventListener("click",()=>{
+	localStorage.clear();
+	alert("Admin Logout successfull!!")
+	window.location.href="../html/index.html"
+
+})

@@ -421,6 +421,7 @@
             localStorage.setItem("token", res.token);
             localStorage.setItem("name", res.name);
             localStorage.setItem("img", res.image);
+            console.log(res.image);
             if (res.role == "Admin") {
               window.location.href = "admin.html";
             } else {
