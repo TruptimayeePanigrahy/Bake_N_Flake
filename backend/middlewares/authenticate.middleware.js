@@ -8,23 +8,21 @@ const authenticate = async(req, res, next) => {
     if(blacklist.includes(token)){
       res.send('please log in again')
     }
-    const decodedToken = jwt.verify(token, "masai");
-   
-
-    if(decodedToken){
-      const { userID } = decodedToken;
-      const user = await UserModel.findById({_id:userID});
-      try{
-      if (!user) {
-         res.json({ message: 'Unauthorized' });
-      }
-      req.user = userID;
-      req.role=user.role;
-  
-      next();
-    } catch (error) {
-     res.json({ message: 'Unauthorized',err:error.message});
-    }
+   // let token=req.headers.authorization.split(' ')[1];
+    
+    if(token){
+        let decoded=jwt.verify(token,'masai');
+       // console.log(decoded)
+        if(decoded.userID){
+            req.body.userID=decoded.userID;
+          //  console.log(req.body);
+            next();
+        }
+        else{
+            res.status(400).send({msg:"Please login !"})
+        }
+    }else{
+        res.status(400).send({msg:"Please login !"});
     }
    
 }
