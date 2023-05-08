@@ -10,6 +10,7 @@ const { adminmodel } = require("../models/admin.model")
 
 const {passport} = require("../google_auth")
 const {client} = require("../middlewares/redis")
+require("dotenv").config()
 
 
 userRouter.post("/register",async(req,res)=>{
@@ -27,6 +28,8 @@ userRouter.post("/register",async(req,res)=>{
                 res.send({"msg":"New Users has been registred"})
            }
         });
+
+
        
     }catch(err){
         res.send({"msg":"Something went wrong","error":err.message})
@@ -103,7 +106,22 @@ userRouter.get('/auth/google',
 
 
 
+userRouter.post("/forgetpassword",async(req,res)=>{
+    const {email}=req.body
+try {
+    const olduser=await UserModel.findOne({email})
+if(!olduser){
+    return res.send("user not presnt")
+}
 
+const secret=process.env.secretekey +olduser.pass
+const token=jwt.sign({email:olduser.email,id:olduser._id},secret,{expiresIn:"1d"})
+
+
+} catch (error) {
+    
+}
+})
 
 
 
