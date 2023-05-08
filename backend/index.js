@@ -38,6 +38,7 @@ app.get("/", (req,res)=>{
 })
 
 
+
 // app.get('/auth/google/',
  
 //   function(req, res) {
@@ -56,6 +57,7 @@ app.get('/auth/google/callback',
   app.get("/login",(req,res)=>{
     res.sendFile(__dirname+ "/index.html")
     })
+
 
 
 

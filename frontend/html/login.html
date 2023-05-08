@@ -338,7 +338,7 @@
       <input type="password" id="pass" placeholder="password..." />
       <br />
       <p>
-        By continuing, you agree to Winni <span> Terms of Use </span> and
+        By continuing, you agree to this <span> Terms of Use </span> and
         <span> Privacy Policy.</span>
       </p>
       <button onclick="onLogin()">CONTINUE</button>
@@ -346,8 +346,8 @@
 
       <!-- <h4>OR Continue with</h4> -->
 
-      <a href="http://localhost:8080/auth/google"
-        ><h4>Continue with google</h4></a
+      <a href="http://localhost:8080/users/auth/google">
+        <h4 id="google">Continue with google</h4></a
       >
 
       <h3>
@@ -440,4 +440,18 @@
       .then((err) => console.log(err));
     // .then(err=>alert("Login Failed"))
   };
+
+  // let googlebtn = document.getElementById("google");
+  // googlebtn.addEventListener("click", () => {
+  //   fetch("http://localhost:8080/users/auth/google")
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       console.log(data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // });
 </script>
