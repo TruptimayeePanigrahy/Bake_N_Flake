@@ -63,21 +63,37 @@ if(val1==arr1.length) val1=0;
       welcome.innerText="Welcome";
       user.innerText=username;
       btn.innerText="Logout"
+      btn.addEventListener("click", () => {
+         fetch("http://localhost:8080/users/logout")
+           .then(res => res.json())
+           .then(data => {
+             alert(data.msg);
+             localStorage.clear();
+             window.location.href = "../html/index.html";
+           });
+       });
       
     }
+    else {
+      btn.innerText = "Signup/Login";
+      btn.addEventListener("click", () => {
+        window.location.href = "../html/signup.html";
+      });
+    }
 
-    if(btn.innerText=="Logout"){
-      btn.addEventListener("click",()=>{
-         fetch("http://localhost:8080/users/logout")
-         .then(res=>res.json())
-         .then((data)=>{
-          //  console.log(data)
-            alert(data.msg)
-            localStorage.clear();
-            window.location.href="../html/index.html"
-         })
+   //  if(btn.innerText=="Logout"){
+   //    btn.addEventListener("click",()=>{
+   //       fetch("http://localhost:8080/users/logout")
+   //       .then(res=>res.json())
+   //       .then((data)=>{
+   //        //  console.log(data)
+   //          alert(data.msg)
+   //          localStorage.clear();
+   //          window.location.href="../html/index.html"
+   //       })
          
         
+<<<<<<< HEAD
       })
     }
     if(btn.innerText=="Signup/Login"){
@@ -104,10 +120,47 @@ if(val1==arr1.length) val1=0;
         console.log(res)
     })
     
+=======
+   //    })
+   //  }
+   //  else{
+   //    if(btn.innerText=="Signup/Login"){
+   //       btn.addEventListener("click",()=>{
+   //         // localStorage.clear();
+   //          window.location.href="../html/signup.html"
+   //       })
+   //  }
+      
+>>>>>>> d23c2014ba9c7639fa312261f528879067252826
     
 
-   
     
+    
+    // OAuth handling
+const urlParams = new URLSearchParams(window.location.search);
+const googleName = urlParams.get("name");
+const googleId = urlParams.get("userid");
+
+
+if (googleName && googleId) {
+   localStorage.setItem("googlename", JSON.stringify(googleName));
+   localStorage.setItem("googleid", JSON.stringify(googleId));
+   user.innerText = googleName;
+   btn.innerText = "Logout";
+ 
+   btn.addEventListener("click", () => {
+     fetch("http://localhost:8080/users/logout")
+       .then(res => res.json())
+       .then(data => {
+         alert(data.msg);
+         localStorage.clear();
+         window.location.href = "../html/index.html";
+       });
+   });
+ }
+ 
+ 
+
    let cake=document.getElementById("cake")
    cake.addEventListener("click",()=>{
       window.location.href="./cake.html"

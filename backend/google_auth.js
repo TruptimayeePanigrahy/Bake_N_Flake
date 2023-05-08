@@ -9,18 +9,34 @@ require("dotenv").config();
 passport.use(new GoogleStrategy({
     clientID: process.env. GOOGLE_CLIENT_ID,
     clientSecret: process.env. GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:8080/auth/google/callback"
+    callbackURL: "http://localhost:8080/users/auth/google/callback"
   },
   async function(accessToken, refreshToken, profile, cb) {
-    let email=profile._json.email
-    const user=new UserModel({
-      email,
-      password : uuidv4()
-    })
-    await user.save()
-   return cb(null, user);
+    try{
+      let email=profile._json.email
+      const user=await UserModel.findOne({email})
+      if(!user){
+      
+      
+      
+        let newuser=new UserModel({email,name:profile._json.name,pass:"12345"})
+        await newuser.save()
+        return cb(null,newuser)
+      
+
+      }
+      else{
+        return cb(null,user)
+      }
+        
+    }
+    catch(err){
+      console.log(err);
+    }
+    
+    
   
   }
 ));
 
-module.exports=passport;
+module.exports={passport};
