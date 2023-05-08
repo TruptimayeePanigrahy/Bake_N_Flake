@@ -77,10 +77,7 @@ userRouter.get("/logout",(req,res)=>{
     res.send({msg:"logout successful"})
     })
 
-   userRouter.get("/",(req,res)=>{
-    res.send("hii")
-})
-
+   
 
 
 userRouter.get('/auth/google',
