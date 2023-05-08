@@ -1,12 +1,12 @@
-## Bake N Flake is an online gifting platform, providing  with a comprehensive range of lovely cakes in lip-smacking flavors, exotic flowers in lovely arrangements and so many type of gifts.
+** Bake N Flake is an online gifting platform, providing  with a comprehensive range of lovely cakes in lip-smacking flavors, exotic flowers in lovely arrangements and so many type of gifts.**
 
 ✨project Contributors:-
 
-1.Truptimayee panigrahy(Team Lead)
-2. Yash Gupta
-3.Sachin Chavan
-4.Darshan Bhandwalkar
-5.Madhura Tatte
+1.Truptimayee panigrahy(Team Lead) <br>
+2. Yash Gupta   <br>
+3.Sachin Chavan   <br>
+4.Darshan Bhandwalkar   <br>
+5.Madhura Tatte  <br>
 <br>
 
 💻Unique Project Name & logo :- Bake N Flake
