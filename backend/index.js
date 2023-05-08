@@ -26,11 +26,12 @@ const server=http.createServer(app);
 app.use("/product",productRoute)
 
 app.use("/users",userRouter)
-app.use(authenticate)
+app.use("/admin",adminrouter)
+//  app.use(authenticate)
 app.use("/cart",cartRoutes)
 
 //app.use(authenticate)
-app.use("/admin",adminrouter)
+
 
 
 app.get("/", (req,res)=>{
@@ -38,15 +39,6 @@ app.get("/", (req,res)=>{
 })
 
 
-
-// app.get('/auth/google/',
- 
-//   function(req, res) {
-//    console.log(passport.authenticate('google', { scope: ['profile','email'] }))
-//     // Successful authentication, redirect home.
-//     console.log(req.user);
-//     res.redirect("http://127.0.0.1:5501/frontend/html/index.html");
-//   });
 
 
 
