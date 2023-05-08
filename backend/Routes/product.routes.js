@@ -3,9 +3,23 @@ const productRoute=express.Router()
 const ProductModel=require("../Models/product.model")
 
 productRoute.get("/",async(req,res)=>{
-    let product=await ProductModel.find().skip().limit();
-    res.send(product)
+    let {page,q,category}=req.query;
+    let filter={};
+    let pageNumber=page||1;
+    let skipitems=(pageNumber-1)*12;
+    if(category){
+        filter.category=category;
+    }
+    if(q){
+        filter.$or = 
+        [ { name: { $regex: q, $options: 'i' } }]
+    }
+    let product=await ProductModel.find(filter).skip(skipitems).limit(12);
+    let productTotal=await ProductModel.find(filter)
+    //res.header({"X-Total-Count":productTotal.length});
+    res.send({"Total":productTotal.length,"products":product})
 })
+
 
 productRoute.post("/addproduct",async (req,res)=>{
     try {
