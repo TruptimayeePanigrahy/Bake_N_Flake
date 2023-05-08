@@ -42,9 +42,9 @@ userRouter.post("/login", async(req,res)=>{
                 let token=jwt.sign({userID:user[0]._id},"masai");
               //  console.log(aduser[0].Image);
               if(user[0].role=="Admin"){
-                res.send({"msg":"Logged in","token":token,name:user[0].name,role:user[0].role,image:aduser[0].Image})
+                res.send({"msg":"Logged in","token":token,"name":user[0].name,"role":user[0].role,"image":aduser[0].Image})
               }else{
-                res.send({"msg":"Logged in","token":token,name:user[0].name,role:user[0].role})
+                res.send({"msg":"Logged in","token":token,"name":user[0].name,"role":user[0].role})
 
               }
             }else{

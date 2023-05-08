@@ -26,6 +26,7 @@ let img=document.createElement("img");
 img.setAttribute("src",arr1[val1]);
 document.getElementById("small-slider").innerHTML=null;
 document.getElementById("small-slider").append(img);
+
 val1++;
 if(val1==arr1.length) val1=0;
 },3000);
@@ -86,7 +87,22 @@ if(val1==arr1.length) val1=0;
       })
     }
 
-    
+    // cart length
+    let c_size=document.getElementById('c-number')
+
+    fetch(`http://localhost:8080/cart/`,{
+        headers:{'content-type':'application/json',
+                 'Authorization':`Bearer ${token}`
+    }
+    })
+    .then(res=>res.json())
+    .then((res)=>{
+        if(token){
+            c_size.innerText=res.length;
+        }
+       
+        console.log(res)
+    })
     
     
 

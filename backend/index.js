@@ -33,9 +33,8 @@ app.use("/cart",cartRoutes)
 app.use("/admin",adminrouter)
 
 
-app.get("/", (req,res)=>{
-    res.send("okkkkkkk")
-})
+
+
 
 
 // app.get('/auth/google/',
