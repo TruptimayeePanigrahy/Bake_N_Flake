@@ -12,29 +12,28 @@ cartRoutes.get("/abc", (req,res)=>{
 
 
 // to get products
-cartRoutes.get("/",async (req,res) => {
+cartRoutes.get("/",authenticate,async (req,res) => {
     const token=req.headers.authorization.split(' ')[1];
     //console.log("token",token)
     if(token){
         const decoded=jwt.verify(token,'masai');
-    
-   // console.log(decoded)
-    if(decoded.userID){
-        try {
-            const user= await CartProductModel.find({userID:decoded.userID});
-            res.status(200).send(user)
-        } catch (error) {
-            res.status(400).send({"msg":error.message})
-        } 
-    }
-}else{
-    res.status(400).send({"msg":"Please login!"})
-}
+        // console.log(decoded)
+            if(decoded.userID){
+                try {
+                    const user= await CartProductModel.find({userID:decoded.userID});
+                    res.status(200).send(user)
+                } catch (error) {
+                    res.status(400).send({"msg":error.message})
+                } 
+            }
+        }else{
+            res.status(400).send({"msg":"Please login!"})
+        }
     
 })
 
 // to add products in cart
-cartRoutes.post("/add", async (req,res) => {
+cartRoutes.post("/add",authenticate, async (req,res) => {
     const {name} = req.body
     let product = await  CartProductModel.find({name})
     if(product.length === 0){
