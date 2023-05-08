@@ -154,8 +154,8 @@ function displayproduct(){
 	})
 	.then((data) => {
 	  console.log(data);
-	  productdata=data
-	   products(data);
+	  productdata=data.products
+	   products(data.products);
 	//   searchbar(fetchdata)
 	  // page1(fetchdata)
 

@@ -68,10 +68,15 @@ app.post('/verifyOrder', (req, res)=>{
         res.json({success:false, message:"Payment verification failed"})
     }
 });
-// ************************************************************************************************//
+
 app.use("/product",productRoute)
 
 app.use("/users",userRouter)
+
+app.use("/admin",adminrouter)
+//  app.use(authenticate)
+
+
 
 app.use("/cart",cartRoutes)
 
@@ -80,7 +85,7 @@ app.use(authenticate)
 
 
 //app.use(authenticate)
-app.use("/admin",adminrouter)
+
 
 
 app.get("/", (req,res)=>{
@@ -89,24 +94,11 @@ app.get("/", (req,res)=>{
 
 
 
-// app.get('/auth/google/',
- 
-//   function(req, res) {
-//    console.log(passport.authenticate('google', { scope: ['profile','email'] }))
-//     // Successful authentication, redirect home.
-//     console.log(req.user);
-//     res.redirect("http://127.0.0.1:5501/frontend/html/index.html");
-//   });
 
-// app.get('/auth/google/callback', 
-//   passport.authenticate('google', { failureRedirect: '/login', session:false }),
- 
 
-//   );
 
-  app.get("/login",(req,res)=>{
-    res.sendFile(__dirname+ "/index.html")
-    })
+
+
 
 
 
