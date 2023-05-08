@@ -7,6 +7,8 @@ const bcrypt=require("bcrypt")
 const {blacklist}=require("../models/blacklist")
 const {authenticate}=require("../middlewares/authenticate.middleware")
 const { adminmodel } = require("../models/admin.model")
+const {passport} = require("passport")
+const {client} = require("../middlewares/redis")
 
 userRouter.post("/register",async(req,res)=>{
     const {name,email,pass,role}=req.body
@@ -40,6 +42,7 @@ userRouter.post("/login", async(req,res)=>{
         bcrypt.compare(pass, user[0].pass,(err, result)=>{
             if(result){
                 let token=jwt.sign({userID:user[0]._id},"masai");
+
               //  console.log(aduser[0].Image);
               if(user[0].role=="Admin"){
                 res.send({"msg":"Logged in","token":token,name:user[0].name,role:user[0].role,image:aduser[0].Image})
@@ -47,13 +50,14 @@ userRouter.post("/login", async(req,res)=>{
                 res.send({"msg":"Logged in","token":token,name:user[0].name,role:user[0].role})
 
               }
-            }else{
+            }
+            else{
                 res.send({"msg":"wrong credentials"})
             }
         });
 
     }else{
-            res.send({"msg":"wrong credentials"})
+            res.send({"msg":"please registered first!"})
         }
      }catch(err){
          res.send({"msg":"Something went wrong","error":err.message})
@@ -61,10 +65,43 @@ userRouter.post("/login", async(req,res)=>{
 })
 
 
-// userRouter.get("/logout",(req,res)=>{
-//     blacklist.push(req.headers?.authorization?.split(" ")[1])
-//     res.send({msg:"logout successful"})
-//     })
+userRouter.get("/logout",(req,res)=>{
+    blacklist.push(req.headers?.authorization?.split(" ")[1])
+
+    res.send({msg:"logout successful"})
+    })
+
+    res.send({msg:"User logout successful"})
+    })
+
+
+
+    userRouter.get('/auth/google',
+    passport.authenticate('google', { scope: ['profile','email'] }));
+  
+    userRouter.get('/auth/google/callback', 
+    passport.authenticate('google', { failureRedirect: '/login' ,session:false}),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      console.log(req.user)
+      const user=req.user
+      let token=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6hr"})
+      let refreshtoken=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6d"})
+  
+      client.set('token', token, 'EX', 3600);
+      client.set('refreshtoken', refreshtoken, 'EX', 3600);
+      
+      res.send(`<a href="http://127.0.0.1:5501/Front-End/View/index.html?userid=${user._id}" id="myid">abc</a>
+      <script>
+          let a = document.getElementById('myid')
+          a.click()
+          console.log(a)
+      </script>`)
+  
+  
+  });
+
+
 
 
 module.exports={

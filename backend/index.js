@@ -47,11 +47,11 @@ app.get("/", (req,res)=>{
 //     res.redirect("http://127.0.0.1:5501/frontend/html/index.html");
 //   });
 
-// app.get('/auth/google/callback', 
-//   passport.authenticate('google', { failureRedirect: '/login', session:false }),
+app.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login', session:false }),
  
 
-//   );
+  );
 
   app.get("/login",(req,res)=>{
     res.sendFile(__dirname+ "/index.html")
