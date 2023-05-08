@@ -13,14 +13,23 @@ cartRoutes.get("/abc", (req,res)=>{
 
 // to get products
 cartRoutes.get("/",async (req,res) => {
-    const{user}=req.body 
-            try {
-                const products = await CartProductModel.find({user})
-                res.status(200).send(products)
-            } catch (error) {
-                res.status(400).send({msg:error.message})
-            }
-        
+    const token=req.headers.authorization.split(' ')[1];
+    //console.log("token",token)
+    if(token){
+        const decoded=jwt.verify(token,'masai');
+    
+   // console.log(decoded)
+    if(decoded.userID){
+        try {
+            const user= await CartProductModel.find({userID:decoded.userID});
+            res.status(200).send(user)
+        } catch (error) {
+            res.status(400).send({"msg":error.message})
+        } 
+    }
+}else{
+    res.status(400).send({"msg":"Please login!"})
+}
     
 })
 
@@ -36,6 +45,8 @@ cartRoutes.post("/add", async (req,res) => {
         } catch (error) {
             res.status(400).send({msg:error.message})
         }
+    } else{
+        res.send({msg:"product is already in the cart"})
     }
 })
 

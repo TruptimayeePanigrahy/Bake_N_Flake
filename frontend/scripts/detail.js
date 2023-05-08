@@ -2,9 +2,12 @@ let parent=document.getElementById("detail");
 let image=document.getElementById("img");
 let name=document.getElementById("name");
 let detail=document.getElementById("pdetail");
+let token=localStorage.getItem("token");
 let ele=JSON.parse(localStorage.getItem("detailPage"));
-
+let c_size=document.getElementById('c-number')
+const baseURL=`https:localhost:8080`
 console.log(ele)
+token ? token=token:token="";
 
 let imgc=document.createElement("img");
 imgc.src=ele.image
@@ -15,7 +18,35 @@ let h3=document.createElement('h3');
 h3.innerText=ele.price;
 let btncart=document.createElement("button");
 btncart.innerText="Add To Cart";
-
+btncart.addEventListener('click',()=>{
+    console.log("hi")
+    ele.quantity=1;
+    fetch(`http://localhost:8080/cart/add`,{
+        method:"POST",
+        body:JSON.stringify(ele),
+        headers:{'content-type':'application/json',
+                 'Authorization':`Bearer ${token}`
+    }
+    })
+    .then(res=>res.json())
+    .then((res)=>{
+        alert(res.msg);
+        fetch(`http://localhost:8080/cart/`,{
+        headers:{'content-type':'application/json',
+                 'Authorization':`Bearer ${token}`
+    }
+    })
+    .then(res=>res.json())
+    .then((res)=>{
+        if(token){
+            c_size.innerText=res.length;
+        }
+       
+        console.log(res)
+    })
+    })
+    
+})
 let btnbuy=document.createElement('button');
 btnbuy.innerText="Buy Now"
 name.append(h1,h3,btncart,btnbuy)
