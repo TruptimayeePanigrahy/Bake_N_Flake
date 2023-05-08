@@ -56,10 +56,10 @@ userRouter.post("/login", async(req,res)=>{
 })
 
 
-// userRouter.get("/logout",(req,res)=>{
-//     blacklist.push(req.headers?.authorization?.split(" ")[1])
-//     res.send({msg:"logout successful"})
-//     })
+userRouter.get("/logout",(req,res)=>{
+    blacklist.push(req.headers?.authorization?.split(" ")[1])
+    res.send({msg:"logout successful"})
+    })
 
 
 module.exports={
