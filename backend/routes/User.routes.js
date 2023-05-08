@@ -77,33 +77,14 @@ userRouter.get("/logout",(req,res)=>{
     res.send({msg:"logout successful"})
     })
 
-    // res.send({msg:"User logout successful"})
-    // })
+   userRouter.get("/",(req,res)=>{
+    res.send("hii")
+})
 
 
 
-//     userRouter.get('/auth/google',
-//     passport.authenticate('google', { scope: ['profile','email'] }));
-  
-
-//     userRouter.get('/auth/google/callback', 
-//     passport.authenticate('google', { failureRedirect: '/login' ,session:false}),
-//     function(req, res) {
-//       // Successful authentication, redirect home.
-//       console.log(req.user)
-//       const user=req.user
-//       let token=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6hr"})
-//       let refreshtoken=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6d"})
-  
-//       client.set('token', token, 'EX', 3600);
-//       client.set('refreshtoken', refreshtoken, 'EX', 3600);
-      
-//       res.send(`<a href="http://127.0.0.1:5501/Front-End/View/index.html?userid=${user._id}" id="myid">abc</a>
-//       <script>
-//           let a = document.getElementById('myid')
-//           a.click()
-//           console.log(a)
-//       </script>`)
+userRouter.get('/auth/google',
+    passport.authenticate('google', { scope: ['profile','email'] }));
 
     userRouter.get('/auth/google/callback', 
     passport.authenticate('google', { failureRedirect: '/login' ,session:false}),
@@ -114,20 +95,14 @@ userRouter.get("/logout",(req,res)=>{
       let name=user.name
       let id=user._id
     
-    //   let token=jwt.sign({id:user._id,role:user.Role},process.env.secretkey,{expiresIn:"6hr"})
-    //   let refreshtoken=jwt.sign({id:user._id,role:user.Role},process.env.secretkey,{expiresIn:"6d"})
-
-  
-    //   client.set('token', token, 'EX', 3600);
-    //   client.set('refreshtoken', refreshtoken, 'EX', 3600);
-    //   res.send("heello")
-    // res.send({name,id})
+   
+   
   
 
- //});
-//      res.send(`<a href="http://127.0.0.1:5501/frontend/html/index.html?userid=${id}&name=${name}">Click here to continue</a>`)
  
-//  })
+      res.send(`<a href="http://127.0.0.1:5501/frontend/html/index.html?userid=${id}&name=${name}">Click here to continue</a>`)
+ 
+  })
 
 
 
