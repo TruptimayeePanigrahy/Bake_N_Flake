@@ -69,7 +69,7 @@ For Backend :Nodejs ,MongoDB ,Express,Redis .
 ![App Screenshot](![Screenshot (98)]()
 )
 
-# Cart | onwer details |
+# Cart 
 
 ![App Screenshot](![Screenshot (99)]()
 )
@@ -78,6 +78,15 @@ For Backend :Nodejs ,MongoDB ,Express,Redis .
 )
 
 ![App Screenshot](![Screenshot (101)]()
+)
+# Admin Dashboard
+![App Screenshot](![Screenshot (102)]()
+)
+![App Screenshot](![Screenshot (103)]()
+)
+![App Screenshot](![Screenshot (104)]()
+)
+![App Screenshot](![Screenshot (105)]()
 )
 
 ---
