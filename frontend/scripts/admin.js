@@ -396,4 +396,7 @@ logoutbutton.addEventListener("click",()=>{
 	alert("Admin Logout successfull!!")
 	window.location.href="../html/index.html"
 
+
+	
+
 })
