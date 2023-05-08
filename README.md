@@ -15,7 +15,7 @@
 )
 
 💫Tech-Stack->
-For Frontend : HTML5, CSS3, Javascript, ES6.
+For Frontend : HTML5, CSS3, Javascript, ES6.  <br>
 For Backend :Nodejs ,MongoDB ,Express,Redis .
 
 
