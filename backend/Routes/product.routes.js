@@ -19,6 +19,12 @@ productRoute.get("/",async(req,res)=>{
     //res.header({"X-Total-Count":productTotal.length});
     res.send({"Total":productTotal.length,"products":product})
 })
+productRoute.get("/admin",async (req,res)=>{
+    let product=await ProductModel.find()
+   // let productTotal=await ProductModel.find(filter)
+    //res.header({"X-Total-Count":productTotal.length});
+    res.send(product)
+})
 
 
 productRoute.post("/addproduct",async (req,res)=>{
