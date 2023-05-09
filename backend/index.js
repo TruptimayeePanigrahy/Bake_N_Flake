@@ -8,7 +8,7 @@ const  connection  = require('./db');
 
 const {productRoute}=require('./Routes/product.routes')
 const {cartRoutes}=require("./Routes/cart.routes")
-const {userRouter}=require("./Routes/User.routes")
+const {userRouter}=require("./routes/User.routes")
 const {authenticate}=require("./middlewares/authenticate.middleware")
 
 const {adminrouter}=require("./Routes/admin.route")
@@ -23,7 +23,9 @@ app.use(cors())
 
 const server=http.createServer(app);
 
+
 /*************************************Razorpay********************************************************* */
+
 // razorpay routes please dont touch these routes
 const razorpayInstance = new Razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
@@ -80,9 +82,8 @@ app.use("/cart",cartRoutes)
 
 
 
-app.get("/", (req,res)=>{
-    res.send("okkkkkkk")
-})
+
+
 
 
 

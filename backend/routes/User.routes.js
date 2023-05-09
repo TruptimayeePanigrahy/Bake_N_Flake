@@ -11,6 +11,10 @@ const { adminmodel } = require("../models/admin.model")
 // const {passport} = require("../google_auth")
 // const {client} = require("../middlewares/redis")
 
+const {passport} = require("../google_auth")
+const {client} = require("../middlewares/redis")
+require("dotenv").config()
+
 
 userRouter.post("/register",async(req,res)=>{
     const {name,email,pass,role}=req.body
@@ -27,6 +31,8 @@ userRouter.post("/register",async(req,res)=>{
                 res.send({"msg":"New Users has been registred"})
            }
         });
+
+
        
     }catch(err){
         res.send({"msg":"Something went wrong","error":err.message})
@@ -47,9 +53,9 @@ userRouter.post("/login", async(req,res)=>{
 
               //  console.log(aduser[0].Image);
               if(user[0].role=="Admin"){
-                res.send({"msg":"Logged in","token":token,name:user[0].name,role:user[0].role,image:aduser[0].Image})
+                res.send({"msg":"Logged in","token":token,"name":user[0].name,"role":user[0].role,"image":aduser[0].Image})
               }else{
-                res.send({"msg":"Logged in","token":token,name:user[0].name,role:user[0].role})
+                res.send({"msg":"Logged in","token":token,"name":user[0].name,"role":user[0].role})
 
               }
             }
@@ -77,32 +83,11 @@ userRouter.get("/logout",(req,res)=>{
     res.send({msg:"logout successful"})
     })
 
- 
 
 
 
-//     userRouter.get('/auth/google',
-//     passport.authenticate('google', { scope: ['profile','email'] }));
-  
-
-//     userRouter.get('/auth/google/callback', 
-//     passport.authenticate('google', { failureRedirect: '/login' ,session:false}),
-//     function(req, res) {
-//       // Successful authentication, redirect home.
-//       console.log(req.user)
-//       const user=req.user
-//       let token=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6hr"})
-//       let refreshtoken=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6d"})
-  
-//       client.set('token', token, 'EX', 3600);
-//       client.set('refreshtoken', refreshtoken, 'EX', 3600);
-      
-//       res.send(`<a href="http://127.0.0.1:5501/Front-End/View/index.html?userid=${user._id}" id="myid">abc</a>
-//       <script>
-//           let a = document.getElementById('myid')
-//           a.click()
-//           console.log(a)
-//       </script>`)
+userRouter.get('/auth/google',
+    passport.authenticate('google', { scope: ['profile','email'] }));
 
 //     userRouter.get('/auth/google/callback', 
 //     passport.authenticate('google', { failureRedirect: '/login' ,session:false}),
@@ -124,9 +109,32 @@ userRouter.get("/logout",(req,res)=>{
   
 
 //  });
-//      res.send(`<a href="http://127.0.0.1:5501/frontend/html/index.html?userid=${id}&name=${name}">Click here to continue</a>`)
+//      res.send(`<a href="http://127.0.0.1:5501/frontend/html/index.html?userid=${id}&name=${name}">Click here to continue</a>`
+   
+   
+  
  
-//  })
+      res.send(`<a href="http://127.0.0.1:5501/frontend/html/index.html?userid=${id}&name=${name}">Click here to continue</a>`)
+ 
+  })
+
+
+
+userRouter.post("/forgetpassword",async(req,res)=>{
+    const {email}=req.body
+try {
+    const olduser=await UserModel.findOne({email})
+if(!olduser){
+    return res.send("user not presnt")
+}
+const secret=process.env.secretekey +olduser.pass
+const token=jwt.sign({email:olduser.email,id:olduser._id},secret,{expiresIn:"1d"})
+
+
+} catch (error) {
+    
+}
+})
 
 
 
