@@ -83,6 +83,10 @@ userRouter.get("/logout",(req,res)=>{
    
 
 
+    
+
+
+
 userRouter.get('/auth/google',
     passport.authenticate('google', { scope: ['profile','email'] }));
 
@@ -104,23 +108,87 @@ userRouter.get('/auth/google',
  
   })
 
+  let sendotpmail=async(Name,Email,otp)=>{
 
+    try {
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'panigrahydeepakkumar27@gmail.com',
+                pass: process.env.googlepassword
+            }
+        });
 
-userRouter.post("/forgetpassword",async(req,res)=>{
-    const {email}=req.body
-try {
-    const olduser=await UserModel.findOne({email})
-if(!olduser){
-    return res.send("user not presnt")
+        let mailOptions = {
+            from: 'panigrahydeepakkumar27@gmail.com',
+            to: Email,
+            subject: 'OTP verifecation mail',
+            html:`<p>HI ${Name} <br> please use this OTP to update password.<br> ${otp} </p>`
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.log(error);
+                
+            } else {
+                console.log('Email sent: ' + info.response);
+               
+            }
+        });
+    } catch (error) {
+        console.log(error)
+    }
+
 }
 
-const secret=process.env.secretekey +olduser.pass
-const token=jwt.sign({email:olduser.email,id:olduser._id},secret,{expiresIn:"1d"})
+userRouter.post("/forgetpass",async(req,res)=>{
+    try {
+        let {email}=req.body
+        let user=await UserModel.findOne({email})
+        if(user){
+            let OTP = "";
+            for (let i = 0; i < 6; i++) {
+            OTP+= Math.floor(Math.random() * 10);
+            }
+            console.log(OTP)
+            // client.set('OTP', OTP, 'EX', 3600);
+            sendotpmail(user.name,user.email,OTP)
 
+        }
+        res.send({"userdetails":user})
+    } catch (error) {
+        console.log(error)
+    }
+})
 
-} catch (error) {
-    
-}
+userRouter.post("/verifyotp",async(req,res)=>{
+    try {
+        let {OTP}=req.body
+       let otp=await client.get('OTP')
+       if(OTP==otp){
+        res.status(200).send({"msg":"Otp verified"})
+       }else{
+        res.status(400).send({"msg":"incorrect verified"})
+       }
+       
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+userRouter.put("/updatepass",async(req,res)=>{
+    try {
+        let {id}=req.query
+        let {pass}=req.body
+        let hashpass=bcrypt.hashSync(pass,7)
+        let user=await UserModel.findById({_id:id})
+        user.Pass=hashpass
+        await user.save()
+        console.log(user)
+         res.send({"msg":"password update successfull please login"})
+    } catch (error) {
+        res.send(error)
+    }
 })
 
 
