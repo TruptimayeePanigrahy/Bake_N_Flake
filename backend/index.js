@@ -25,12 +25,17 @@ require("dotenv").config();
 const server=http.createServer(app);
 
 
+
+//razorpay routes please dont touch these routes
+
 /*************************************Razorpay********************************************************* */
 
 // razorpay routes please dont touch these routes
+
 const razorpayInstance = new Razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
     key_secret: process.env.RAZORPAY_KEY_SECRET
+
 });
 
 
