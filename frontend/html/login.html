@@ -208,6 +208,16 @@
         font-size: 60px;
       }
     }
+
+    #logo{
+      display: flex;
+      gap: 8px;
+      margin-left: 110px;
+    }
+    #logo>div>img{
+      width: 21px;
+      margin-top: 18px;
+    }
   </style>
   <body>
     <div id="container">
@@ -226,9 +236,22 @@
 
       <!-- <h4>OR Continue with</h4> -->
 
-      <a href="http://localhost:8080/users/auth/google">
+      <div id="logo">
+        <div>
+          <a href="http://localhost:8080/users/auth/google">
+            <h4>Continue with google</h4></a
+          >
+        </div>
+        <div>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAkpwZzBGGTMue65hgkkFUh4jpjAbi_DoAuK41CEM&s" alt="">
+        </div>
+      </div>
+
+      <!-- <a href="http://localhost:8080/users/auth/google">
         <h4 id="google">Continue with google</h4></a
       >
+
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAkpwZzBGGTMue65hgkkFUh4jpjAbi_DoAuK41CEM&s" alt=""> -->
 
       <h3>
         User does not SignUp ? <a href="./signup.html"><span> SignUp</span></a>
