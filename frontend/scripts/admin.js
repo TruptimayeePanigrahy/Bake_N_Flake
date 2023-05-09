@@ -148,14 +148,14 @@ adminbtn.addEventListener("click",()=>{
 
 let productdata
 function displayproduct(){
-	fetch("http://localhost:8080/product/")
+	fetch("http://localhost:8080/product/admin")
 	.then((res) => {
 	  return res.json();
 	})
 	.then((data) => {
 	  console.log(data);
-	  productdata=data.products
-	   products(data.products);
+	  productdata=data
+	   products(data);
 	//   searchbar(fetchdata)
 	  // page1(fetchdata)
 
@@ -283,14 +283,14 @@ fetch("http://localhost:8080/product/addproduct",{
 		console.log(data);
 		alert("Product added successfully!!");
 		addbox.style.display="none"
-		fetch("http://localhost:8080/product/")
+		fetch("http://localhost:8080/product/admin")
 	.then((res) => {
 	  return res.json();
 	})
 	.then((data) => {
 	  console.log(data);
 	  productdata=data
-	   products(data.products);
+	   products(data);
 	//   searchbar(fetchdata)
 	  // page1(fetchdata)
 
@@ -368,14 +368,14 @@ document.getElementById("editbtn").addEventListener("click",()=>{
           console.log(datas);
           alert("Product updated successfully!!");
 		  editbox.style.display="none"
-		  fetch("http://localhost:8080/product/")
+		  fetch("http://localhost:8080/product/admin")
 	.then((res) => {
 	  return res.json();
 	})
 	.then((data) => {
 	  console.log(data);
 	  productdata=data
-	   products(data.products);
+	   products(data);
 	//   searchbar(fetchdata)
 	  // page1(fetchdata)
 
