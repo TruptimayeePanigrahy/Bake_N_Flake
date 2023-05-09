@@ -2,7 +2,7 @@ let baseURL = "http://localhost:8080/"
 let cartLeft = document.getElementById("cart-page-left")
 let c_size=document.getElementById('c-number')
 let totalPrice = document.getElementById("totalPrice")
-let token = localStorage.getItem("token")
+let token = localStorage.getItem("token");
 console.log(token)
 fetchAndRender()
 
@@ -29,11 +29,12 @@ function fetchAndRender(){
       })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res)
+        console.log("hi",res)
         if(res.length === 0){
             displayBlank()
         }
         else{
+         // console.log("hellow")
             display(res)
             totalCartPrice(res)
         }
@@ -50,125 +51,162 @@ function displayBlank(){
 // if request have data present in it
 function display(data){
 
-    cartLeft.innerHTML = null
-    console.log(data)
-    data.forEach((element,index) => {
-        let card = document.createElement("div")
-        card.setAttribute("id","card")
-        let div1 = document.createElement("div")
-        let image = document.createElement("img")
-        image.src = element.image
-        div1.append(image)
+  cartLeft.innerHTML = null
+  console.log(data)
+  data.forEach((element,index) => {
+      let card = document.createElement("div")
+      card.setAttribute("id","card")
+      let div1 = document.createElement("div")
+      let image = document.createElement("img")
+      image.src = element.image
+      div1.append(image)
 
-        let div2 = document.createElement("div")
-        div2.setAttribute("id","div2")
-        let title = document.createElement("h3")
-        title.setAttribute("class","div2")
-        title.innerText=element.name
-        let price = document.createElement("p")
-        price.setAttribute("class","div2")
-        price.innerText=`Rs. `+ element.price
+      let div2 = document.createElement("div")
+      div2.setAttribute("id","div2")
+      let title = document.createElement("h3")
+      title.setAttribute("class","div2")
+      title.innerText=element.name
+      let price = document.createElement("p")
+      price.setAttribute("class","div2")
+      price.innerText=`Rs. `+ element.price
 
-        let quantityBtnDiv = document.createElement("div")
-        quantityBtnDiv.setAttribute("class","div2")
-        quantityBtnDiv.setAttribute("id","quantityBtnDiv")
-        let quantityBtnInc = document.createElement("button")
-        quantityBtnInc.setAttribute("id","quantityBtnInc")
-        quantityBtnInc.innerText = "+"
-        let quantityBtnDec = document.createElement("button")
-        quantityBtnDec.setAttribute("id","quantityBtnDec")
-        quantityBtnDec.innerText = "-"
-        let quantity = document.createElement("p")
-        quantity.setAttribute("id","quantity")
-        quantity.innerText = element.quantity
-        quantityBtnDiv.append(quantityBtnDec,quantity,quantityBtnInc)
+      let quantityBtnDiv = document.createElement("div")
+      quantityBtnDiv.setAttribute("class","div2")
+      quantityBtnDiv.setAttribute("id","quantityBtnDiv")
+      let quantityBtnInc = document.createElement("button")
+      quantityBtnInc.setAttribute("id","quantityBtnInc")
+      quantityBtnInc.innerText = "+"
+      let quantityBtnDec = document.createElement("button")
+      quantityBtnDec.setAttribute("id","quantityBtnDec")
+      quantityBtnDec.innerText = "-"
+      let quantity = document.createElement("p")
+      quantity.setAttribute("id","quantity")
+      quantity.innerText = element.quantity
+      quantityBtnDiv.append(quantityBtnDec,quantity,quantityBtnInc)
 
-        let removeBtn = document.createElement("button")
-        removeBtn.setAttribute("id","removeBtn")
-        removeBtn.innerText = "Remove"
-        div2.append(title,price,quantityBtnDiv,removeBtn)
+      let removeBtn = document.createElement("button")
+      removeBtn.setAttribute("id","removeBtn")
+      removeBtn.innerText = "Remove"
+      div2.append(title,price,quantityBtnDiv,removeBtn)
 
-        quantityBtnInc.addEventListener("click",() => {
-            console.log(element)
-            if(quantity.innerText > 0){
-                quantity.innerText = parseInt(quantity.innerText) + 1
-                h1.innerText = +h1.innerText + (+element.price)
-                totalAll(h1.innerText)
-            }
-            // fetch(`${baseURL}cart/update/${element._id}`, {
-            //     method: "PATCH",
-            //     headers: {
-            //         "Content-type": "application/json"
-            //     },
-            //     body:JSON.stringify({quantity:quantity++})
-            // })
-            // .then(res => res.json())
-            // .then(data => {
-            //     fetchAndRender(data)
-            // })
-        })
-
-        quantityBtnDec.addEventListener("click", () => {
-            if (quantity.innerText > 1) {
-                quantity.innerText = parseInt(quantity.innerText) - 1
-              h1.innerText = +h1.innerText - (+element.price)
-              // console.log(h1.innerText)
+      quantityBtnInc.addEventListener("click",() => {
+          console.log(element)
+          if(quantity.innerText > 0){
+              quantity.innerText = parseInt(quantity.innerText) + 1
+              h1.innerText = +h1.innerText + (+element.price)
               totalAll(h1.innerText)
-            }
-            // fetch(`${baseURL}cart/update/${element._id}`, {
-            //     method: "PATCH",
-            //     headers: {
-            //         "Content-type": "application/json"
-            //     },
-            //     body:JSON.stringify({quantity:quantity--})
-            // })
-            // .then(res => res.json())
-            // .then(data => {
-            //     fetchAndRender(data)
-            // })
-        })
+              fetch(`${baseURL}createOrder`, {
+                method: 'POST',
+              })
+              .then(response => response.json())
+              .then(data => {
+                console.log(data)
+                  payment(data)
+              })
+              .catch(error => {
+                console.log(error);
+              });
+          }
+          // fetch(`${baseURL}cart/update/${element._id}`, {
+          //     method: "PATCH",
+          //     headers: {
+          //         "Content-type": "application/json"
+          //     },
+          //     body:JSON.stringify({quantity:quantity++})
+          // })
+          // .then(res => res.json())
+          // .then(data => {
+          //     fetchAndRender(data)
+          // })
+      })
 
-        removeBtn.addEventListener("click",(e) => {
-            h1.innerText = +h1.innerText - (+element.price) * (+element.quantity)
-            // let newData = data.splice(index, 1)
-            // console.log(newData,data.splice(index, 1))
-            // totalAll(h1.innerText)
-
-            // console.log(element)
-            fetch(`${baseURL}cart/delete/${element._id}`, {
-                method: "DELETE",
-                headers: {
-                    "Content-type": "application/json"
-                }
-                
+      quantityBtnDec.addEventListener("click", () => {
+          if (quantity.innerText > 1) {
+              quantity.innerText = parseInt(quantity.innerText) - 1
+            h1.innerText = +h1.innerText - (+element.price)
+            // console.log(h1.innerText)
+            totalAll(h1.innerText)
+            fetch(`${baseURL}createOrder`, {
+              method: 'POST',
             })
-            .then(res => res.json())
+            .then(response => response.json())
             .then(data => {
               console.log(data)
-              fetch(`http://localhost:8080/cart/`,{
-        headers:{'content-type':'application/json',
-                 'Authorization':`Bearer ${token}`
-    }
-    })
-    .then(res=>res.json())
-    .then((res)=>{
-        if(token){
-            c_size.innerText=res.length;
-        }
-       
-        console.log(res)
-    })
-
-                fetchAndRender(data)
+                payment(data)
             })
+            .catch(error => {
+              console.log(error);
+            });
+           
+          }
+          // fetch(`${baseURL}cart/update/${element._id}`, {
+          //     method: "PATCH",
+          //     headers: {
+          //         "Content-type": "application/json"
+          //     },
+          //     body:JSON.stringify({quantity:quantity--})
+          // })
+          // .then(res => res.json())
+          // .then(data => {
+          //     fetchAndRender(data)
+          // })
+      })
 
+      removeBtn.addEventListener("click",(e) => {
+          h1.innerText = +h1.innerText - (+element.price) * (+element.quantity)
+          // let newData = data.splice(index, 1)
+          // console.log(newData,data.splice(index, 1))
+          // totalAll(h1.innerText)
+
+          // console.log(element)
+          fetch(`${baseURL}cart/delete/${element._id}`, {
+              method: "DELETE",
+              headers: {
+                  "Content-type": "application/json"
+              }
+              
+          })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data)
+            fetch(`${baseURL}createOrder`, {
+              method: 'POST',
+            })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data)
+                payment(data)
+            })
+            .catch(error => {
+              console.log(error);
+            });
             
-        })
+            fetch(`http://localhost:8080/cart/`,{
+      headers:{'content-type':'application/json',
+               'Authorization':`Bearer ${token}`
+  }
+  })
+  .then(res=>res.json())
+  .then((res)=>{
+      if(token){
+          c_size.innerText=res.length;
+      }
+     
+      console.log(res)
+  })
 
-        card.append(div1,div2)
-        cartLeft.append(card)
-    })
+              fetchAndRender(data)
+          })
+
+          
+      })
+
+      card.append(div1,div2)
+      cartLeft.append(card)
+  })
 }
+
+
 
 function totalAll(total){
     console.log(total)
@@ -194,6 +232,7 @@ function totalCartPrice(data){
     })
     .then(response => response.json())
     .then(data => {
+      console.log(data)
         payment(data)
     })
     .catch(error => {
@@ -202,7 +241,8 @@ function totalCartPrice(data){
     
 
     function payment(data){
-        let x = localStorage.getItem("total")
+        let x = JSON.parse(localStorage.getItem("total"))
+        console.log(x)
         const options = {
         "key": "rzp_test_FkLG5L2aUSSixd",
         "amount": x*100,
@@ -236,9 +276,12 @@ function totalCartPrice(data){
         });
     
         document.getElementById('pay-button').onclick = function(e){
-        razorpayObject.open();
+       
         e.preventDefault();
+        
+        razorpayObject.open();
         }
+       
     }
         
     
