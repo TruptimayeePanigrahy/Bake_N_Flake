@@ -13,8 +13,6 @@ const {authenticate}=require("./middlewares/authenticate.middleware")
 
 const {adminrouter}=require("./Routes/admin.route")
 
-//const passport=require("./google_auth")
-
 
 require("dotenv").config();
 const cors=require("cors")
@@ -25,9 +23,8 @@ app.use(cors())
 
 const server=http.createServer(app);
 
-const client_id="789acb1d19a1200bc377";
-const client_secret="46387986535050cab5d67b3e705162de8c030552"
 
+/*************************************Razorpay********************************************************* */
 
 // razorpay routes please dont touch these routes
 const razorpayInstance = new Razorpay({
@@ -36,9 +33,7 @@ const razorpayInstance = new Razorpay({
 });
 
 
-const PORT = process.env.PORT || 5000
-
-app.use(express.json());
+//app.use(express.json());
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/success.html'))
@@ -72,18 +67,14 @@ app.post('/verifyOrder', (req, res)=>{
     }
 });
 
+// ************************************************************************************************//
 app.use("/product",productRoute)
-
-app.use("/users",userRouter)
-
 app.use("/admin",adminrouter)
-//  app.use(authenticate)
-
-
-
+app.use("/users",userRouter)
+// app.use(authenticate)
 app.use("/cart",cartRoutes)
 
-app.use(authenticate)
+
 
 
 
