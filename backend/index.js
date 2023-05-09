@@ -1,32 +1,37 @@
 const express=require('express');
 const Razorpay = require('razorpay')
 const path = require('path')
+const cors=require("cors")
 const app=express();
 app.use(express.json());
+app.use(cors())
 const http=require('http');
 const  connection  = require('./db');
 
 const {productRoute}=require('./Routes/product.routes')
 const {cartRoutes}=require("./Routes/cart.routes")
-const {userRouter}=require("./Routes/User.routes")
+const {userRouter}=require("./routes/User.routes")
 const {authenticate}=require("./middlewares/authenticate.middleware")
 
 const {adminrouter}=require("./Routes/admin.route")
 
-//const passport=require("./google_auth")
-
 
 require("dotenv").config();
-const cors=require("cors")
 
 
-app.use(express.json());
-app.use(cors())
+
+
 
 const server=http.createServer(app);
 
 
+
 //razorpay routes please dont touch these routes
+
+/*************************************Razorpay********************************************************* */
+
+// razorpay routes please dont touch these routes
+
 const razorpayInstance = new Razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
     key_secret: process.env.RAZORPAY_KEY_SECRET
@@ -34,9 +39,7 @@ const razorpayInstance = new Razorpay({
 });
 
 
-const PORT = process.env.PORT || 5000
-
-app.use(express.json());
+//app.use(express.json());
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/success.html'))
@@ -70,18 +73,14 @@ app.post('/verifyOrder', (req, res)=>{
     }
 });
 
+// ************************************************************************************************//
 app.use("/product",productRoute)
-
-app.use("/users",userRouter)
-
 app.use("/admin",adminrouter)
-//  app.use(authenticate)
-
-
-
+app.use("/users",userRouter)
+// app.use(authenticate)
 app.use("/cart",cartRoutes)
 
-app.use(authenticate)
+
 
 
 
@@ -89,9 +88,8 @@ app.use(authenticate)
 
 
 
-app.get("/", (req,res)=>{
-    res.send("okkkkkkk")
-})
+
+
 
 
 

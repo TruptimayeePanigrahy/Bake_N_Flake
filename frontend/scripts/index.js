@@ -1,3 +1,19 @@
+let token = localStorage.getItem("token")
+let c_size=document.getElementById('c-number')
+fetch(`http://localhost:8080/cart/`,{
+        headers:{'content-type':'application/json',
+                 'Authorization':`Bearer ${token}`
+    }
+    })
+    .then(res=>res.json())
+    .then((res)=>{
+        if(token){
+            c_size.innerText=res.length;
+        }
+       
+        console.log(res)
+    })
+
 // first slider
 let arr=["https://assets.winni.in/sf-img/live/visuals/home/desktop/2023/5/1683001222911.jpg",
          "https://assets.winni.in/sf-img/live/visuals/home/desktop/2023/5/1683099654921.jpg",
@@ -26,6 +42,7 @@ let img=document.createElement("img");
 img.setAttribute("src",arr1[val1]);
 document.getElementById("small-slider").innerHTML=null;
 document.getElementById("small-slider").append(img);
+
 val1++;
 if(val1==arr1.length) val1=0;
 },3000);
@@ -52,7 +69,7 @@ if(val1==arr1.length) val1=0;
     //profile name;
 
 
-    let token=localStorage.getItem("token")
+   // let token=localStorage.getItem("token")
 
     let username=localStorage.getItem("name")
     let welcome=document.getElementById("welcome")
@@ -80,28 +97,28 @@ if(val1==arr1.length) val1=0;
       });
     }
 
-   //  if(btn.innerText=="Logout"){
-   //    btn.addEventListener("click",()=>{
-   //       fetch("http://localhost:8080/users/logout")
-   //       .then(res=>res.json())
-   //       .then((data)=>{
-   //        //  console.log(data)
-   //          alert(data.msg)
-   //          localStorage.clear();
-   //          window.location.href="../html/index.html"
-   //       })
+    if(btn.innerText=="Logout"){
+      btn.addEventListener("click",()=>{
+         fetch("http://localhost:8080/users/logout")
+         .then(res=>res.json())
+         .then((data)=>{
+          //  console.log(data)
+            alert(data.msg)
+            localStorage.clear();
+            window.location.href="../html/index.html"
+         })
          
         
-   //    })
-   //  }
-   //  else{
-   //    if(btn.innerText=="Signup/Login"){
-   //       btn.addEventListener("click",()=>{
-   //         // localStorage.clear();
-   //          window.location.href="../html/signup.html"
-   //       })
-   //  }
-      
+      })
+    }
+    else{
+      if(btn.innerText=="Signup/Login"){
+         btn.addEventListener("click",()=>{
+           // localStorage.clear();
+            window.location.href="../html/signup.html"
+         })
+    }
+  }
     
 
     

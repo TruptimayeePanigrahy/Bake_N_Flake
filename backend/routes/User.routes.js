@@ -9,7 +9,10 @@ const {authenticate}=require("../middlewares/authenticate.middleware")
 const { adminmodel } = require("../models/admin.model")
 
 const {passport} = require("../google_auth")
-const {client} = require("../middlewares/redis")
+// const {client} = require("../middlewares/redis")
+
+
+//const {client} = require("../middlewares/redis")
 require("dotenv").config()
 
 
@@ -50,9 +53,9 @@ userRouter.post("/login", async(req,res)=>{
 
               //  console.log(aduser[0].Image);
               if(user[0].role=="Admin"){
-                res.send({"msg":"Logged in","token":token,name:user[0].name,role:user[0].role,image:aduser[0].Image})
+                res.send({"msg":"Logged in","token":token,"name":user[0].name,"role":user[0].role,"image":aduser[0].Image})
               }else{
-                res.send({"msg":"Logged in","token":token,name:user[0].name,role:user[0].role})
+                res.send({"msg":"Logged in","token":token,"name":user[0].name,"role":user[0].role})
 
               }
             }
@@ -80,6 +83,7 @@ userRouter.get("/logout",(req,res)=>{
     res.send({msg:"logout successful"})
     })
 
+
    
 
 
@@ -87,7 +91,10 @@ userRouter.get("/logout",(req,res)=>{
 
 
 
-userRouter.get('/auth/google',
+
+    
+    userRouter.get('/auth/google',
+
     passport.authenticate('google', { scope: ['profile','email'] }));
 
     userRouter.get('/auth/google/callback', 
@@ -99,11 +106,6 @@ userRouter.get('/auth/google',
       let name=user.name
       let id=user._id
     
-   
-   
-  
-
- 
       res.send(`<a href="http://127.0.0.1:5501/frontend/html/index.html?userid=${id}&name=${name}">Click here to continue</a>`)
  
   })
@@ -139,7 +141,7 @@ userRouter.get('/auth/google',
         console.log(error)
     }
 
-}
+
 
 userRouter.post("/forgetpass",async(req,res)=>{
     try {
@@ -190,6 +192,7 @@ userRouter.put("/updatepass",async(req,res)=>{
         res.send(error)
     }
 })
+
 
 
 

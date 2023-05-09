@@ -7,10 +7,12 @@
     <title>Online cakes,flowers and gifts</title>
     <link rel="icon" type="image/x-icon" href="../images/logo.png">
     <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/cart.css">
     <script src="https://kit.fontawesome.com/63a16aff49.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- navbar -->
+    
     <div id="mainContainer">
         <div id="navbar">
 
@@ -32,7 +34,7 @@
                     <div>
                         <form id="form">
                             <div>
-                                <input type="text" id="input" placeholder="Search for gifts"><i class="fa-solid fa-magnifying-glass" style="color: #85878a;"></i>
+                                <input type="text" id="input" placeholder="Search for gifts"><i  id="search" class="fa-solid fa-magnifying-glass" style="color: #85878a;"></i>
                             </div>
                          </form>
                     </div>
@@ -51,13 +53,13 @@
                         <img src="https://assets.winni.in/groot/2023/01/31/icons/profile.svg" alt="">
                            
                             <div id="dropdown1">
-                                <p>My</p>
-                                <p>Profile</p>
+                                <p id="welcome">My</p>
+                                <p id="user">Profile</p>
                                 <div id="menucontent1">
                                     <div>
                                         <p>Welcome</p>
                                         <p>To access account and manage orders</p>
-                                        <button>Signup/Login</button>
+                                        <a href="#"><button id="btn">Signup/Login</button></a>
                                         <div></div>
                                         <p>My Bake N Flake</p>
                                         <p>My Orders</p>
@@ -66,6 +68,8 @@
                                     </div>
                                     
                                 </div>
+
+                                
                             </div>
 
                             
@@ -84,7 +88,8 @@
                         <img src="https://assets.winni.in/groot/2023/01/31/icons/cart.svg" alt="">
                         <div>
                             <p>Cart</p>
-                            <p>0 Items</p>
+                            <p><span id="c-number">0</span>
+                                 Items</p>
                         </div>
                         
                     </div>
@@ -209,8 +214,35 @@
             <img src="https://assets.winni.in/groot/2023/01/31/icons/down-arrow-header.png" alt="">
         </div>
     </div>
-
     <!-- cart page section -->
+    <div class="cart">
+        <h3>Shopping cart</h3>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="cart-page">
+        <div id="cart-page-left"></div>
+        <div id="cart-page-right">
+            <!-- <h2>Total Price: <span id="totalPrice">0</span> Rs</h2> -->
+            <div id="order-summary">
+                <h3>Order summary:-</h3>
+                <h6>Total Order Value:</h6>
+                <h5 id="h1">
+                    <script>
+                        localStorage.setItem("totalAmount", JSON.stringify(h1.innertext))
+                    </script>
+                </h5>
+                <div id="pay-button">
+                  Click Here To Payment!!
+                </div>
+        </div>
+        </div>
+    </div>
     
 </body>
 </html>
+<script src="../scripts/cart.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    
