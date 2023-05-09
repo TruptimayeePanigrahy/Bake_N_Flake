@@ -74,7 +74,7 @@ if(val1==arr1.length) val1=0;
 
 
    // let token=localStorage.getItem("token")
-
+    token ? token=token:token="";
     let username=localStorage.getItem("name")
     let welcome=document.getElementById("welcome")
     let user=document.getElementById("user")

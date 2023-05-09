@@ -1,5 +1,5 @@
 const express=require("express")
-const {JsonWebToken} = require("jsonwebtoken")
+
 const {UserModel}=require("../models/User.model")
 const userRouter=express.Router()
 const jwt=require("jsonwebtoken")
