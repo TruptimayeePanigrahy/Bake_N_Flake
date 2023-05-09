@@ -97,57 +97,28 @@ if(val1==arr1.length) val1=0;
       });
     }
 
-   //  if(btn.innerText=="Logout"){
-   //    btn.addEventListener("click",()=>{
-   //       fetch("http://localhost:8080/users/logout")
-   //       .then(res=>res.json())
-   //       .then((data)=>{
-   //        //  console.log(data)
-   //          alert(data.msg)
-   //          localStorage.clear();
-   //          window.location.href="../html/index.html"
-   //       })
+    if(btn.innerText=="Logout"){
+      btn.addEventListener("click",()=>{
+         fetch("http://localhost:8080/users/logout")
+         .then(res=>res.json())
+         .then((data)=>{
+          //  console.log(data)
+            alert(data.msg)
+            localStorage.clear();
+            window.location.href="../html/index.html"
+         })
          
         
-<<<<<<< HEAD
       })
     }
-    if(btn.innerText=="Signup/Login"){
-      btn.addEventListener("click",()=>{
-        // localStorage.clear();
-         window.location.href="../html/signup.html"
-      })
+    else{
+      if(btn.innerText=="Signup/Login"){
+         btn.addEventListener("click",()=>{
+           // localStorage.clear();
+            window.location.href="../html/signup.html"
+         })
     }
-
-    // cart length
-    let c_size=document.getElementById('c-number')
-
-    fetch(`http://localhost:8080/cart/`,{
-        headers:{'content-type':'application/json',
-                 'Authorization':`Bearer ${token}`
-    }
-    })
-    .then(res=>res.json())
-    .then((res)=>{
-        if(token){
-            c_size.innerText=res.length;
-        }
-       
-        console.log(res)
-    })
-    
-=======
-   //    })
-   //  }
-   //  else{
-   //    if(btn.innerText=="Signup/Login"){
-   //       btn.addEventListener("click",()=>{
-   //         // localStorage.clear();
-   //          window.location.href="../html/signup.html"
-   //       })
-   //  }
-      
->>>>>>> d23c2014ba9c7639fa312261f528879067252826
+  }
     
 
     

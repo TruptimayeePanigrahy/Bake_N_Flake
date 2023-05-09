@@ -1,8 +1,10 @@
 const express=require('express');
 const Razorpay = require('razorpay')
 const path = require('path')
+const cors=require("cors")
 const app=express();
 app.use(express.json());
+app.use(cors())
 const http=require('http');
 const  connection  = require('./db');
 
@@ -15,11 +17,10 @@ const {adminrouter}=require("./Routes/admin.route")
 
 
 require("dotenv").config();
-const cors=require("cors")
 
 
-app.use(express.json());
-app.use(cors())
+
+
 
 const server=http.createServer(app);
 
