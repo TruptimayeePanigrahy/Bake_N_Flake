@@ -8,8 +8,8 @@ const {blacklist}=require("../models/blacklist")
 const {authenticate}=require("../middlewares/authenticate.middleware")
 const { adminmodel } = require("../models/admin.model")
 
-const {passport} = require("../google_auth")
-const {client} = require("../middlewares/redis")
+// const {passport} = require("../google_auth")
+// const {client} = require("../middlewares/redis")
 
 
 userRouter.post("/register",async(req,res)=>{
@@ -77,8 +77,7 @@ userRouter.get("/logout",(req,res)=>{
     res.send({msg:"logout successful"})
     })
 
-    // res.send({msg:"User logout successful"})
-    // })
+ 
 
 
 
@@ -105,33 +104,29 @@ userRouter.get("/logout",(req,res)=>{
 //           console.log(a)
 //       </script>`)
 
-    userRouter.get('/auth/google/callback', 
-    passport.authenticate('google', { failureRedirect: '/login' ,session:false}),
-    function(req, res) {
+//     userRouter.get('/auth/google/callback', 
+//     passport.authenticate('google', { failureRedirect: '/login' ,session:false}),
+//     function(req, res) {
       
-      console.log(req.user)
-      const user=req.user
-      let name=user.name
-      let id=user._id
+//       console.log(req.user)
+//       const user=req.user
+//       let name=user.name
+//       let id=user._id
     
-    //   let token=jwt.sign({id:user._id,role:user.Role},process.env.secretkey,{expiresIn:"6hr"})
-    //   let refreshtoken=jwt.sign({id:user._id,role:user.Role},process.env.secretkey,{expiresIn:"6d"})
+//     //   let token=jwt.sign({id:user._id,role:user.Role},process.env.secretkey,{expiresIn:"6hr"})
+//     //   let refreshtoken=jwt.sign({id:user._id,role:user.Role},process.env.secretkey,{expiresIn:"6d"})
 
   
-    //   client.set('token', token, 'EX', 3600);
-    //   client.set('refreshtoken', refreshtoken, 'EX', 3600);
-    //   res.send("heello")
-    // res.send({name,id})
+//     //   client.set('token', token, 'EX', 3600);
+//     //   client.set('refreshtoken', refreshtoken, 'EX', 3600);
+//     //   res.send("heello")
+//     // res.send({name,id})
   
 
- //});
+//  });
 //      res.send(`<a href="http://127.0.0.1:5501/frontend/html/index.html?userid=${id}&name=${name}">Click here to continue</a>`)
  
 //  })
-
-
-
-
 
 
 

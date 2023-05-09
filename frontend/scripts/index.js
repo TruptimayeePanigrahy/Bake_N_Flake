@@ -1,3 +1,19 @@
+let token = localStorage.getItem("token")
+let c_size=document.getElementById('c-number')
+fetch(`http://localhost:8080/cart/`,{
+        headers:{'content-type':'application/json',
+                 'Authorization':`Bearer ${token}`
+    }
+    })
+    .then(res=>res.json())
+    .then((res)=>{
+        if(token){
+            c_size.innerText=res.length;
+        }
+       
+        console.log(res)
+    })
+
 // first slider
 let arr=["https://assets.winni.in/sf-img/live/visuals/home/desktop/2023/5/1683001222911.jpg",
          "https://assets.winni.in/sf-img/live/visuals/home/desktop/2023/5/1683099654921.jpg",
@@ -52,7 +68,7 @@ if(val1==arr1.length) val1=0;
     //profile name;
 
 
-    let token=localStorage.getItem("token")
+   // let token=localStorage.getItem("token")
 
     let username=localStorage.getItem("name")
     let welcome=document.getElementById("welcome")
