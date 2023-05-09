@@ -290,7 +290,7 @@ fetch("http://localhost:8080/product/addproduct",{
 	.then((data) => {
 	  console.log(data);
 	  productdata=data
-	   products(data);
+	   products(data.products);
 	//   searchbar(fetchdata)
 	  // page1(fetchdata)
 
@@ -375,7 +375,7 @@ document.getElementById("editbtn").addEventListener("click",()=>{
 	.then((data) => {
 	  console.log(data);
 	  productdata=data
-	   products(data);
+	   products(data.products);
 	//   searchbar(fetchdata)
 	  // page1(fetchdata)
 
