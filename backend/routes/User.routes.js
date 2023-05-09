@@ -193,7 +193,7 @@ userRouter.put("/updatepass",async(req,res)=>{
     }
 })
 
-
+  }
 
 
 module.exports={
