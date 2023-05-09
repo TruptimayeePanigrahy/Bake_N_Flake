@@ -1,4 +1,4 @@
-let baseURL = "http://localhost:8080/"
+let baseURL = "https://handsome-nightshirt-cow.cyclic.app/"
 let cartLeft = document.getElementById("cart-page-left")
 let c_size=document.getElementById('c-number')
 let totalPrice = document.getElementById("totalPrice")
@@ -6,7 +6,7 @@ let token = localStorage.getItem("token");
 console.log(token)
 fetchAndRender()
 
-fetch(`http://localhost:8080/cart/`,{
+fetch(`https://handsome-nightshirt-cow.cyclic.app//cart/`,{
         headers:{'content-type':'application/json',
                  'Authorization':`Bearer ${token}`
     }
@@ -181,7 +181,7 @@ function display(data){
               console.log(error);
             });
             
-            fetch(`http://localhost:8080/cart/`,{
+            fetch(`https://handsome-nightshirt-cow.cyclic.app//cart/`,{
       headers:{'content-type':'application/json',
                'Authorization':`Bearer ${token}`
   }
@@ -300,7 +300,7 @@ function totalCartPrice(data){
     user.innerText=username;
     btn.innerText="Logout"
     btn.addEventListener("click", () => {
-       fetch("http://localhost:8080/users/logout")
+       fetch("https://handsome-nightshirt-cow.cyclic.app/users/logout")
          .then(res => res.json())
          .then(data => {
            alert(data.msg);
@@ -356,7 +356,7 @@ if (googleName && googleId) {
  btn.innerText = "Logout";
 
  btn.addEventListener("click", () => {
-   fetch("http://localhost:8080/users/logout")
+   fetch("https://handsome-nightshirt-cow.cyclic.app//users/logout")
      .then(res => res.json())
      .then(data => {
        alert(data.msg);

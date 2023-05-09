@@ -2,7 +2,7 @@ let token = localStorage.getItem("token");
 token?token=token:token="";
 let c_size=document.getElementById('c-number')
 if(token){
-  fetch(`http://localhost:8080/cart/`,{
+  fetch(`https://handsome-nightshirt-cow.cyclic.app//cart/`,{
     headers:{'content-type':'application/json',
              'Authorization':`Bearer ${token}`
 }
@@ -83,15 +83,15 @@ if(val1==arr1.length) val1=0;
       welcome.innerText="Welcome";
       user.innerText=username;
       btn.innerText="Logout"
-      btn.addEventListener("click", () => {
-         fetch("http://localhost:8080/users/logout")
-           .then(res => res.json())
-           .then(data => {
-             alert(data.msg);
-             localStorage.clear();
-             window.location.href = "../html/index.html";
-           });
-       });
+      // btn.addEventListener("click", () => {
+      //    fetch("https://handsome-nightshirt-cow.cyclic.app//users/logout")
+      //      .then(res => res.json())
+      //      .then(data => {
+      //        alert(data.msg);
+      //        localStorage.clear();
+      //        window.location.href = "../html/index.html";
+      //      });
+      //  });
       
     }
     else {
@@ -102,11 +102,15 @@ if(val1==arr1.length) val1=0;
     }
 
     if(btn.innerText=="Logout"){
-      btn.addEventListener("click",()=>{
-         fetch("http://localhost:8080/users/logout")
+      
+      btn.addEventListener("click",(e)=>{
+        e.preventDefault()
+        console.log("hi logout")
+         fetch("https://handsome-nightshirt-cow.cyclic.app//users/logout")
          .then(res=>res.json())
          .then((data)=>{
           //  console.log(data)
+          
             alert(data.msg)
             localStorage.clear();
             window.location.href="../html/index.html"
@@ -140,7 +144,7 @@ if (googleName && googleId) {
    btn.innerText = "Logout";
  
    btn.addEventListener("click", () => {
-     fetch("http://localhost:8080/users/logout")
+     fetch("https://handsome-nightshirt-cow.cyclic.app//users/logout")
        .then(res => res.json())
        .then(data => {
          alert(data.msg);

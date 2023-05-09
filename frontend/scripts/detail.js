@@ -5,7 +5,7 @@ let detail=document.getElementById("pdetail");
 let token=localStorage.getItem("token");
 let ele=JSON.parse(localStorage.getItem("detailPage"));
 let c_size=document.getElementById('c-number')
-const baseURL=`https:localhost:8080`
+const baseURL=`https://handsome-nightshirt-cow.cyclic.app/`
 console.log(ele)
 token ? token=token:token="";
 
@@ -24,7 +24,7 @@ token ? token=token:token="";
 
     if(btn.innerText=="Logout"){
       btn.addEventListener("click",()=>{
-         fetch("http://localhost:8080/users/logout")
+         fetch("https://handsome-nightshirt-cow.cyclic.app//users/logout")
          .then(res=>res.json())
          .then((data)=>{
           //  console.log(data)
@@ -43,7 +43,7 @@ token ? token=token:token="";
       })
     }
 
-fetch(`http://localhost:8080/cart/`,{
+fetch(`https://handsome-nightshirt-cow.cyclic.app//cart/`,{
         headers:{'content-type':'application/json',
                  'Authorization':`Bearer ${token}`
     }
@@ -69,7 +69,7 @@ btncart.innerText="Add To Cart";
 btncart.addEventListener('click',()=>{
     console.log("hi")
     ele.quantity=1;
-    fetch(`http://localhost:8080/cart/add`,{
+    fetch(`https://handsome-nightshirt-cow.cyclic.app//cart/add`,{
         method:"POST",
         body:JSON.stringify(ele),
         headers:{'content-type':'application/json',
@@ -79,7 +79,7 @@ btncart.addEventListener('click',()=>{
     .then(res=>res.json())
     .then((res)=>{
         alert(res.msg);
-        fetch(`http://localhost:8080/cart/`,{
+        fetch(`https://handsome-nightshirt-cow.cyclic.app//cart/`,{
         headers:{'content-type':'application/json',
                  'Authorization':`Bearer ${token}`
     }
@@ -99,7 +99,7 @@ let btnbuy=document.createElement('button');
 btnbuy.innerText="Buy Now";
 btnbuy.addEventListener("click",()=>{
     ele.quantity=1;
-    fetch(`http://localhost:8080/cart/add`,{
+    fetch(`https://handsome-nightshirt-cow.cyclic.app//cart/add`,{
         method:"POST",
         body:JSON.stringify(ele),
         headers:{'content-type':'application/json',
@@ -109,7 +109,7 @@ btnbuy.addEventListener("click",()=>{
     .then(res=>res.json())
     .then((res)=>{
         alert(res.msg);
-        fetch(`http://localhost:8080/cart/`,{
+        fetch(`https://handsome-nightshirt-cow.cyclic.app//cart/`,{
         headers:{'content-type':'application/json',
                  'Authorization':`Bearer ${token}`
     }

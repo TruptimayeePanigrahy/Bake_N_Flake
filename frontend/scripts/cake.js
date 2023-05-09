@@ -6,7 +6,7 @@ let filt=document.getElementById("filter");
 let btnp=document.getElementById("sortp");
 let token=localStorage.getItem("token");
 token ? token=token:token="";
-let baseURL=`http://localhost:8080/product/`
+let baseURL=`https://handsome-nightshirt-cow.cyclic.app//product/`
 
 
 
@@ -35,7 +35,7 @@ function fetchandrendercard(queryParamstring=null){
 
 let c_size=document.getElementById('c-number')
 
-    fetch(`http://localhost:8080/cart/`,{
+    fetch(`https://handsome-nightshirt-cow.cyclic.app//cart/`,{
         headers:{'content-type':'application/json',
                  'Authorization':`Bearer ${token}`
     }
@@ -180,7 +180,7 @@ if(username && token){
 
 if(btn.innerText=="Logout"){
   btn.addEventListener("click",()=>{
-     fetch("http://localhost:8080/users/logout")
+     fetch("https://handsome-nightshirt-cow.cyclic.app//users/logout")
      .then(res=>res.json())
      .then((data)=>{
       //  console.log(data)

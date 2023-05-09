@@ -148,7 +148,7 @@ adminbtn.addEventListener("click",()=>{
 
 let productdata
 function displayproduct(){
-	fetch("http://localhost:8080/product/admin")
+	fetch("https://handsome-nightshirt-cow.cyclic.app/product/admin")
 	.then((res) => {
 	  return res.json();
 	})
@@ -268,7 +268,7 @@ addbutton.addEventListener("click",()=>{
 		
 
 	}
-fetch("http://localhost:8080/product/addproduct",{
+fetch("https://handsome-nightshirt-cow.cyclic.app/product/addproduct",{
 	method:"POST",
 	headers: {
 		
@@ -283,7 +283,7 @@ fetch("http://localhost:8080/product/addproduct",{
 		console.log(data);
 		alert("Product added successfully!!");
 		addbox.style.display="none"
-		fetch("http://localhost:8080/product/admin")
+		fetch("https://handsome-nightshirt-cow.cyclic.app//product/admin")
 	.then((res) => {
 	  return res.json();
 	})
@@ -353,7 +353,7 @@ document.getElementById("editbtn").addEventListener("click",()=>{
 		}
 	}
 
-	fetch(`http://localhost:8080/product/update/${id}`, {
+	fetch(`https://handsome-nightshirt-cow.cyclic.app//product/update/${id}`, {
         method: "PATCH",
         headers: {
         //   authorization: localStorage.getItem("token"),
@@ -368,7 +368,7 @@ document.getElementById("editbtn").addEventListener("click",()=>{
           console.log(datas);
           alert("Product updated successfully!!");
 		  editbox.style.display="none"
-		  fetch("http://localhost:8080/product/admin")
+		  fetch("https://handsome-nightshirt-cow.cyclic.app//product/admin")
 	.then((res) => {
 	  return res.json();
 	})
