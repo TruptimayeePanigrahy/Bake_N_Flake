@@ -144,6 +144,21 @@ function display(data){
             })
             .then(res => res.json())
             .then(data => {
+              console.log(data)
+              fetch(`http://localhost:8080/cart/`,{
+        headers:{'content-type':'application/json',
+                 'Authorization':`Bearer ${token}`
+    }
+    })
+    .then(res=>res.json())
+    .then((res)=>{
+        if(token){
+            c_size.innerText=res.length;
+        }
+       
+        console.log(res)
+    })
+
                 fetchAndRender(data)
             })
 
