@@ -12,6 +12,10 @@ const {passport} = require("../google_auth")
 // const {client} = require("../middlewares/redis")
 
 
+//const {client} = require("../middlewares/redis")
+require("dotenv").config()
+
+
 userRouter.post("/register",async(req,res)=>{
     const {name,email,pass,role}=req.body
     try{
@@ -27,6 +31,8 @@ userRouter.post("/register",async(req,res)=>{
                 res.send({"msg":"New Users has been registred"})
            }
         });
+
+
        
     }catch(err){
         res.send({"msg":"Something went wrong","error":err.message})
@@ -47,9 +53,9 @@ userRouter.post("/login", async(req,res)=>{
 
               //  console.log(aduser[0].Image);
               if(user[0].role=="Admin"){
-                res.send({"msg":"Logged in","token":token,name:user[0].name,role:user[0].role,image:aduser[0].Image})
+                res.send({"msg":"Logged in","token":token,"name":user[0].name,"role":user[0].role,"image":aduser[0].Image})
               }else{
-                res.send({"msg":"Logged in","token":token,name:user[0].name,role:user[0].role})
+                res.send({"msg":"Logged in","token":token,"name":user[0].name,"role":user[0].role})
 
               }
             }
@@ -76,6 +82,8 @@ userRouter.get("/logout",(req,res)=>{
 
     res.send({msg:"logout successful"})
     })
+
+    
     userRouter.get('/auth/google',
     passport.authenticate('google', { scope: ['profile','email'] }));
 

@@ -42,6 +42,7 @@ let img=document.createElement("img");
 img.setAttribute("src",arr1[val1]);
 document.getElementById("small-slider").innerHTML=null;
 document.getElementById("small-slider").append(img);
+
 val1++;
 if(val1==arr1.length) val1=0;
 },3000);
@@ -96,28 +97,28 @@ if(val1==arr1.length) val1=0;
       });
     }
 
-   //  if(btn.innerText=="Logout"){
-   //    btn.addEventListener("click",()=>{
-   //       fetch("http://localhost:8080/users/logout")
-   //       .then(res=>res.json())
-   //       .then((data)=>{
-   //        //  console.log(data)
-   //          alert(data.msg)
-   //          localStorage.clear();
-   //          window.location.href="../html/index.html"
-   //       })
+    if(btn.innerText=="Logout"){
+      btn.addEventListener("click",()=>{
+         fetch("http://localhost:8080/users/logout")
+         .then(res=>res.json())
+         .then((data)=>{
+          //  console.log(data)
+            alert(data.msg)
+            localStorage.clear();
+            window.location.href="../html/index.html"
+         })
          
         
-   //    })
-   //  }
-   //  else{
-   //    if(btn.innerText=="Signup/Login"){
-   //       btn.addEventListener("click",()=>{
-   //         // localStorage.clear();
-   //          window.location.href="../html/signup.html"
-   //       })
-   //  }
-      
+      })
+    }
+    else{
+      if(btn.innerText=="Signup/Login"){
+         btn.addEventListener("click",()=>{
+           // localStorage.clear();
+            window.location.href="../html/signup.html"
+         })
+    }
+  }
     
 
     

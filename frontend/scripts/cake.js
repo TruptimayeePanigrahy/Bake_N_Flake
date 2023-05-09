@@ -4,7 +4,11 @@ let button=document.getElementById("button-wrapper");
 let search=document.getElementById("input");
 let filt=document.getElementById("filter");
 let btnp=document.getElementById("sortp");
+let token=localStorage.getItem("token");
+token ? token=token:token="";
 let baseURL=`http://localhost:8080/product/`
+
+
 
 fetchandrendercard(`?page=1`);
 //fetchandrendercard(`?q=${search.value}`);
@@ -26,6 +30,24 @@ function fetchandrendercard(queryParamstring=null){
         console.log(data)
     })
 }
+
+// cart length
+
+let c_size=document.getElementById('c-number')
+
+    fetch(`http://localhost:8080/cart/`,{
+        headers:{'content-type':'application/json',
+                 'Authorization':`Bearer ${token}`
+    }
+    })
+    .then(res=>res.json())
+    .then((res)=>{
+        if(token){
+            c_size.innerText=res.length;
+        }
+       
+        console.log(res)
+    })
 
 
 function display(data){
@@ -141,4 +163,38 @@ function showpagination(totalitems,x){
 // create buttons
 function getbuttons(id,text){
     return ` <button data-id=${id} class="button-data">${text}</button>`
+}
+
+
+
+let username=localStorage.getItem("name")
+let welcome=document.getElementById("welcome")
+let user=document.getElementById("user")
+let btn=document.getElementById("btn")
+if(username && token){
+  welcome.innerText="Welcome";
+  user.innerText=username;
+  btn.innerText="Logout"
+  
+}
+
+if(btn.innerText=="Logout"){
+  btn.addEventListener("click",()=>{
+     fetch("http://localhost:8080/users/logout")
+     .then(res=>res.json())
+     .then((data)=>{
+      //  console.log(data)
+        alert(data.msg)
+        localStorage.clear();
+        window.location.href="../html/index.html"
+     })
+     
+    
+  })
+}
+if(btn.innerText=="Signup/Login"){
+  btn.addEventListener("click",()=>{
+    // localStorage.clear();
+     window.location.href="../html/signup.html"
+  })
 }
