@@ -80,13 +80,15 @@ For Backend :Nodejs ,MongoDB ,Express,Redis .
 
 # Cart 
 
-![App Screenshot](![Screenshot (99)]()
+![App Screenshot](![Screenshot (99)](![Screenshot (138)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/5deb4ed5-4700-4823-926e-6906c861856e)
+)
 )
 
-![App Screenshot](![Screenshot (100)]()
+
 )
 # Payment 
-![App Screenshot](![Screenshot (101)]()
+![App Screenshot](![Screenshot (101)](![Screenshot (139)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/f5a05b9a-79e5-4f16-9891-4dc29a338efb)
+)
 )
 # Admin Dashboard
 
