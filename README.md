@@ -76,13 +76,13 @@ For Backend :Nodejs ,MongoDB ,Express,Redis .
 
 # Cart 
 
-![App Screenshot](![Screenshot (99)]()
+![App Screenshot](![Screenshot (99)](https://raw.githubusercontent.com/TruptimayeePanigrahy/cared-lip-7373/a427acaa8cbe0e2ee938042bd0f63ce7addb3600/blankCart.png?token=GHSAT0AAAAAACATWQZZQ7UPURXVXTWKVKPYZC3HH7A)
 )
 
-![App Screenshot](![Screenshot (100)]()
+![App Screenshot](![Screenshot (100)](https://raw.githubusercontent.com/TruptimayeePanigrahy/cared-lip-7373/29a865846b64c47ccbfdd5b36d3a8b8f2fe3c069/cart1.png?token=A24H7C47NH5IDQXNVXBS2H3ELM5WS)
 )
-
-![App Screenshot](![Screenshot (101)]()
+# Payment 
+![App Screenshot](![Screenshot (101)](https://raw.githubusercontent.com/TruptimayeePanigrahy/cared-lip-7373/a427acaa8cbe0e2ee938042bd0f63ce7addb3600/cart.png?token=GHSAT0AAAAAACATWQZZ3CBX537KB3GBEBDYZC3HJOQ)
 )
 # Admin Dashboard
 
@@ -104,7 +104,7 @@ For Backend :Nodejs ,MongoDB ,Express,Redis .
 ---
 
 ⭐Deployed Link:-
-
+https://mellifluous-faun-cf2e58.netlify.app/
 ---
 
 <h1 align="center">✨Thank You✨</h1>
