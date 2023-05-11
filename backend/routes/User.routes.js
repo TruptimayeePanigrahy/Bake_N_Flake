@@ -106,7 +106,7 @@ userRouter.get("/logout",(req,res)=>{
       let name=user.name
       let id=user._id
     
-      res.send(`<a href="http://127.0.0.1:5501/frontend/html/index.html?userid=${id}&name=${name}">Click here to continue</a>`)
+      res.send(`<a href="https://roaring-sorbet-a780f8.netlify.app/?userid=${id}&name=${name}">Click here to continue</a>`)
  
   })
 
