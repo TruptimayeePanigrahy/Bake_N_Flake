@@ -48,18 +48,144 @@
     width:100%;
     height:100px;
    
+   
     
 }
 #small-slider>img{
     width:80%;
-    height:100%;
+    height:80%;
     display: block;
     margin: auto;
 }
 
+@media screen and (max-width: 1010px) {
+    
+    #heading{
+       font-size:15px;
+        margin-bottom: 5px;;
+    }
+    #para{
+        font-size: 10px;
+    
+        }
+   #end>div>p{
+    font-size: 8px;;
+   }
+    
+    #end img{
+        width:15px;
+        height:15px;
+    }
+  #right>p{
+    margin-top:10px;
+    font-size: 15px;
+    
+}
+#right>div>div{
+    font-size: 15px;
+    margin-right:40px;
+}
+#footer-link>div>a{
+   
+    font-size: 10px;
+   
+}
+#slider{
+    height:280px;
+}
+.box p{
+    font-size: 10px;
+ }
+ #box-img>img{
+   height:60%;
+}
+#small-slider{
+    margin-top:-60px; 
+    height:40px;
+}
+#yummy1>h1{
+    font-size: 23px;;
+}
+
+
+}
+
+
+
+@media screen and (max-width: 700px) {
+    .box>div{
+        width:100%;
+        height:auto;
+    }
+    .box{
+       display:grid;
+       grid-template-columns: repeat(5,1fr);
+       grid-template-rows: repeat(3,1fr);
+       gap:10px 10px;
+       margin-bottom:-140px;
+       
+    }
+    .box img{
+        width:80%;
+    }
+    .box p{
+        font-size: 10px;
+    }
+    
+    #slider{
+        height:200px;
+    }
+    #heading{
+         font-size:10px;
+        margin-bottom: 5px;;
+    }
+    #para{
+        font-size: 7px;
+    }
+    #end>div>p{
+        font-size:4px;
+    }
+    #end img{
+        width:10px;
+        height:10px
+    }
+    
+    #right>p{    
+        margin-top:7px;
+        font-size: 15px;
+   }
+   #right>div>div{
+    font-size: 10px;
+    margin-right:40px;
+   }
+   #footer-link>div>a{
+    font-size: 5px;
+    
+}
+#box-img>img{
+   height:40%;
+   
+}
+#small-slider{
+   margin-top:-110px; 
+   height:40px;
+  
+}
+#yummy1>h1{
+    font-size: 20px;
+   
+}
+#flexbox>div>h3{
+    font-size: 10px;
+}
+
+
+}
+
 #yummy{
-    height:400px;
+    height:auto;
     margin:30px;
+    width:95%;
 }
 #yummy1{
     width:98%;
@@ -68,6 +194,7 @@
     justify-content: space-between;
     margin-bottom:10px;
     margin: auto;
+    
 }
 #yummy2{
     width:100%;
@@ -75,6 +202,7 @@
     display:flex;
     justify-content: space-around;
     margin-top:20px;
+    
 }
 #yummy1>h1{
     color:#424242;
@@ -92,6 +220,7 @@
     height:100%;
     border-radius: 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding-bottom:10px;
 }
 #yummy2>div>img{
     width:100%;
@@ -104,6 +233,9 @@
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+}
+#flexbox>div{
+    border:1px solid black;
 }
 #flexbox>div:nth-child(1)>p{
     font-size: 14px;;
@@ -312,107 +444,4 @@
     font-size:13px;
     margin-top:5px;
     color:#1E88E5;
-}
-@media screen and (max-width: 1010px) {
-    
-    #heading{
-       font-size:15px;
-        margin-bottom: 5px;;
-    }
-    #para{
-        font-size: 10px;
-    
-        }
-   #end>div>p{
-    font-size: 8px;;
-   }
-    
-    #end img{
-        width:15px;
-        height:15px;
-    }
-  #right>p{
-    margin-top:10px;
-    font-size: 15px;
-    
-}
-#right>div>div{
-    font-size: 15px;
-    margin-right:40px;
-}
-#footer-link>div>a{
-   
-    font-size: 10px;
-   
-}
-#slider{
-    height:280px;
-}
-.box p{
-    font-size: 10px;
- }
- #box-img>img{
-   height:60%;
-}
-
-}
-
-
-
-@media screen and (max-width: 700px) {
-    .box>div{
-        width:100%;
-        height:auto;
-    }
-    .box{
-       display:grid;
-       grid-template-columns: repeat(5,1fr);
-       grid-template-rows: repeat(3,1fr);
-       gap:10px 10px;
-       margin-bottom:-140px;
-       
-    }
-    .box img{
-        width:80%;
-    }
-    .box p{
-        font-size: 10px;
-    }
-    
-    #slider{
-        height:200px;
-    }
-    #heading{
-         font-size:10px;
-        margin-bottom: 5px;;
-    }
-    #para{
-        font-size: 7px;
-    }
-    #end>div>p{
-        font-size:4px;
-    }
-    #end img{
-        width:10px;
-        height:10px
-    }
-    
-    #right>p{    
-        margin-top:7px;
-        font-size: 15px;
-   }
-   #right>div>div{
-    font-size: 10px;
-    margin-right:40px;
-   }
-   #footer-link>div>a{
-    font-size: 5px;
-    
-}
-#box-img>img{
-   
-    height:40%;
-   
-}
-
 }
