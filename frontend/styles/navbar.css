@@ -13,7 +13,9 @@
     #form{
         display:none;
     }
-    
+    #small_nav>div>p{
+        font-size: 10px;;
+    }
 }
 #hamburger{
     display:none;
@@ -76,7 +78,9 @@
     #form{
         display:none;
     }
-    
+    #small_nav>div>p{
+        font-size: 8px;;
+    }
 }
 
 #navbar{
