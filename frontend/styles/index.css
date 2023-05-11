@@ -197,6 +197,7 @@
 #para{
     font-size: 14px;
     color:#757575;
+    text-align: justify;
 }
 #bluebox{
     width:100%;
@@ -311,6 +312,14 @@
     color:#1E88E5;
 }
 @media screen and (max-width: 1010px) {
+    #heading{
+       font-size:15px;
+        margin-bottom: 5px;;
+    }
+    #para{
+        font-size: 10px;
+    
+        }
    #end>div>p{
     font-size: 8px;;
    }
@@ -339,6 +348,13 @@
 
 
 @media screen and (max-width: 700px) {
+    #heading{
+         font-size:10px;
+        margin-bottom: 5px;;
+    }
+    #para{
+        font-size: 7px;
+    }
     #end>div>p{
         font-size:4px;
     }
