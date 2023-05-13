@@ -10,7 +10,7 @@ const  connection  = require('./db');
 
 const {productRoute}=require('./Routes/product.routes')
 const {cartRoutes}=require("./Routes/cart.routes")
-const {userRouter}=require("./routes/User.routes")
+const {userRouter}=require("./Routes/User.routes")
 const {authenticate}=require("./middlewares/authenticate.middleware")
 
 const {adminrouter}=require("./Routes/admin.route")
