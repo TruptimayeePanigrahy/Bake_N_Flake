@@ -82,7 +82,7 @@ switchMode.addEventListener('change', function () {
 
 let fetchdata
 function displaydata() {
-    fetch("http://localhost:8080/admin/getadmin")
+    fetch("https://handsome-nightshirt-cow.cyclic.app/admin/getadmin")
         .then((res) => {
           return res.json();
         })
