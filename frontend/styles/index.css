@@ -62,7 +62,7 @@
     
     #heading{
        font-size:15px;
-        margin-bottom: 5px;;
+        margin-bottom: 5px;
     }
     #para{
         font-size: 10px;
@@ -116,6 +116,7 @@
     .box>div{
         width:100%;
         height:auto;
+
     }
     .box{
        display:grid;
