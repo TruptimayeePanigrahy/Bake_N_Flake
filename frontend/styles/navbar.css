@@ -5,6 +5,9 @@
     font-family:  "Roboto", sans-serif;
     background-color: white;
 }
+#body{
+    width:100%;
+}
 @media screen and (max-width:1015px){
     #s-nav{
      
