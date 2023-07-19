@@ -69,7 +69,7 @@ btncart.innerText="Add To Cart";
 btncart.addEventListener('click',()=>{
     console.log("hi")
     ele.quantity=1;
-    fetch(`https://handsome-nightshirt-cow.cyclic.app//cart/add`,{
+    fetch(`https://handsome-nightshirt-cow.cyclic.app/cart/add`,{
         method:"POST",
         body:JSON.stringify(ele),
         headers:{'content-type':'application/json',

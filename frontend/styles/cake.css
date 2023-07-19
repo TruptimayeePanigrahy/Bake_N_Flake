@@ -4,7 +4,80 @@
     font-family:  "Roboto", sans-serif;
     background-color: white;
 }
+@media screen and (max-width:1015px){
+    #s-nav{
+     
+     display:none;
+    }
+    #form{
+        display:none;
+    }
+    
+}
+#hamburger{
+    display:none;
+}
 
+@media screen and (max-width:1208px){
+    
+    .navigation>img{
+        display:none;
+    }
+    .navigation>div{
+     display: none;
+     
+    }
+    #hamburger{
+        display:block;
+        height:50%;
+        margin-top: 15px;
+        margin-right:20px;
+        position:relative;
+    }
+    
+    #hamburger>img{
+        height:100%;
+        width:50px;
+        
+    }
+    #hamburger:hover #menucontent2{
+        display: block;
+    }
+    
+   
+    
+}
+
+@media screen and (max-width:700px){
+    
+    .navigation>img{
+        display:none;
+    }
+    .navigation>div{
+     display: none;
+     
+    }
+    #hamburger{
+        display:block;
+        height:50%;
+        margin-top: 15px;
+        position:relative;
+        margin-right:20px;
+    }
+    
+    #hamburger:hover #menucontent2{
+        display: block;
+    }
+    #hamburger>img{
+        height:100%;
+        width:50px;
+        
+    }
+    #form{
+        display:none;
+    }
+    
+}
 #navbar{
     
     width:100%;
@@ -447,6 +520,8 @@
     width:60%;
     height:60%;
 }
+
+
 /* footer css */
 
 #heading{
