@@ -27,7 +27,36 @@ function fetchandrendercard(queryParamstring=null){
         console.log("total",totalCount);
         showpagination(totalCount,12);
         display(data.products)
-        console.log(data)
+        // console.log(data)
+        // console.log(queryParamstring.split("&")[0].split("="))
+        // // url setting
+        //  // Get the current URL
+        //  const url = new URL(window.location.href);
+        //  console.log(filt.value)
+        // // Get the existing search parameters
+        // const searchParams = new URLSearchParams(url.search);
+
+        // // Set the filter value
+        // if(filt.value!==""){
+        //     searchParams.set('category', filt.value);
+        //     searchParams.set('page', 1);
+
+        //      // Update the URL with the modified search parameters
+        //  url.search = searchParams.toString();
+
+        //  // Replace the current URL with the updated URL
+        //  window.history.replaceState(null, '', url.toString());
+        // }else if(filt.value==""){
+        //     const searchParams = new URLSearchParams(url.search);
+        //     searchParams.set('', '');
+        //     window.history.replaceState(null, '', url.toString());
+        //     console.log(url)
+
+        // }
+         
+
+        
+      
     })
 }
 
@@ -140,6 +169,7 @@ function showpagination(totalitems,x){
             fetchandrendercard(`?page=${id}`)
             }
             else if(filt.value=="pastry"){
+               
                 fetchandrendercard(`?category=${filt.value}&page=${id}`)
             }
             else if(filt.value=="cupcake"){
