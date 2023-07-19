@@ -6,7 +6,8 @@
     background-color: white;
 }
 #body{
-    width: 100%;
+
+    width:100%;
 }
 @media screen and (max-width:1015px){
     #s-nav{
@@ -16,7 +17,9 @@
     #form{
         display:none;
     }
-    
+    #small_nav>div>p{
+        font-size: 10px;;
+    }
 }
 #hamburger{
     display:none;
@@ -79,7 +82,9 @@
     #form{
         display:none;
     }
-    
+    #small_nav>div>p{
+        font-size: 8px;;
+    }
 }
 
 #navbar{
