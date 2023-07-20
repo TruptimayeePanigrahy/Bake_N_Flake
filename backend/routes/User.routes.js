@@ -17,25 +17,26 @@ require("dotenv").config()
 
 
 userRouter.post("/register",async(req,res)=>{
-    const {name,email,pass,role}=req.body
+    const {name,email,pass}=req.body
     try{
-        const userpresent=await UserModel.findOne({email})
-        if(userpresent){
-            res.send("User Already Present Please Login")
+        const userpresent=await UserModel.find({email});
+        //console.log(userpresent)
+        if(userpresent.length>0){
+            res.status(201).send({msg:"User Already Present Please Login"})
+        }else{
+             
+            bcrypt.hash(pass,5,async(err, hash)=> {
+                if(err) res.status(201).send({msg:"Something went wrong","error":err.message})
+                else{
+                    const user=new UserModel({name,email,pass:hash,role})
+                    await user.save()
+                    res.status(201).send({msg:"New Users has been registred"})
+               }
+            })
         }
-        bcrypt.hash(pass,5,async(err, hash)=> {
-            if(err) res.send({"msg":"Something went wrong","error":err.message})
-            else{
-                const user=new UserModel({name,email,pass:hash,role})
-                await user.save()
-                res.send({"msg":"New Users has been registred"})
-           }
-        });
-
-
        
     }catch(err){
-        res.send({"msg":"Something went wrong","error":err.message})
+        res.send({msg:"Something went wrong","error":err.message})
     }
     
 })
@@ -44,7 +45,7 @@ userRouter.post("/login", async(req,res)=>{
     const {email,pass}=(req.body)
     try{
         const user=await UserModel.find({email})
-        console.log(user);
+        //console.log(user);
         if(user.length>0){
         let  aduser=  await adminmodel.find({email})
         bcrypt.compare(pass, user[0].pass,(err, result)=>{

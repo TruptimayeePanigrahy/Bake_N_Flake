@@ -2,7 +2,10 @@ const mongoose=require("mongoose")
 
 const userSchema=mongoose.Schema({
    name: String,
-   email: String,
+   email: {
+    unique:true,
+    type:String
+  },
    pass: String,
    role:{
     type:String,
