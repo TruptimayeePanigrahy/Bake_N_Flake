@@ -12,12 +12,14 @@
     #form{
         display:none;
     }
-    
+    #small_nav>div>p{
+        font-size: 10px;;
+    }
+
 }
 #hamburger{
     display:none;
 }
-
 @media screen and (max-width:1208px){
     
     .navigation>img{
@@ -76,6 +78,10 @@
     #form{
         display:none;
     }
+    #small_nav>div>p{
+        font-size: 8px;;
+    }
+
     
 }
 #navbar{
@@ -649,7 +655,6 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap:20px;
-    /* border: 1px solid red; */
     width:70%;
     margin: auto;
     margin-top: 30px;
@@ -800,7 +805,7 @@
     margin-bottom: 20px;
      width:20%;
      /* margin: auto; */
-     margin-left: 800px;
+     margin-left: 40%;
      padding: 10px;
      border-radius: 10px;
   }
@@ -822,16 +827,18 @@
   #filter{
     margin-top: 40px;
     /* margin-bottom: 20px; */
-    margin-left: 290px;
+    margin-left: 15%;
     height:30px;
     width: 200px;
     border: 1px solid black;
   }
   
   #sortp{
+    
     margin-top: 40px;
     /* margin-bottom: 20px; */
     /* margin-left: 380px; */
+   
     height:30px;
     width: 200px;
     border: 1px solid black;
