@@ -1,6 +1,52 @@
 const express=require('express');
 const productRoute=express.Router()
-const ProductModel=require("../Models/product.model")
+const ProductModel = require("../Models/product.model")
+
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     productSchema:
+ *       type: object
+ *       properties:
+ *         name:
+ *           type: string
+ *         price:
+ *           type: number
+ *         image:
+ *           type: string
+ *         category:
+ *           type: string
+ *         description:
+ *           type: object
+ *           properties:
+ *             Flavor:
+ *               type: string
+ *             Number_of_item:
+ *               type: number
+ *             Type_of_pastry:
+ *               type: string
+ *             Type_of_Cream:
+ *               type: string
+ */
+
+/**
+ * @swagger
+ * /products/:
+ *   get:
+ *     summary: This route is get all the  from database.
+ *     responses:
+ *       200:
+ *         description: The list of all the product.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/productSchema'
+ */
+
 
 productRoute.get("/",async(req,res)=>{
     let {page,q,category}=req.query;
@@ -25,7 +71,28 @@ productRoute.get("/admin",async (req,res)=>{
     //res.header({"X-Total-Count":productTotal.length});
     res.send(product)
 })
-
+/**
+ * @swagger
+ * /product/addproduct/:
+ *  post:
+ *      summary: To add a new product menu to the database
+ *      tags: [posts]
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/productSchema'
+ *      responses:
+ *          200:
+ *              description: The product was successfully added.
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/productSchema'
+ *          500:
+ *              description: Some server error
+ */
 
 productRoute.post("/addproduct",async (req,res)=>{
     try {
@@ -39,6 +106,32 @@ productRoute.post("/addproduct",async (req,res)=>{
 
 })
 
+/**
+ * @swagger
+ * /products/update/:productID:
+ *   put:
+ *     summary: To update a product in the database
+ *     tags: [posts]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/productSchema'
+ *     responses:
+ *       200:
+ *         description: The product was successfully updated.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/productSchema'
+ *       404:
+ *         description: The specified user ID does not exist.
+ *       500:
+ *         description: Some server error
+ */
+
+
 productRoute.patch("/update/:productID",async(req,res)=>{
     const {productID}=req.params
     try {
@@ -48,6 +141,33 @@ productRoute.patch("/update/:productID",async(req,res)=>{
         res.status(400).send({msg:error.message})
     }
 })
+
+/**
+* @swagger
+* /product/delete/:productID:
+*   delete:
+*     summary: To delete a product from the database
+*     tags: [posts]
+*     requestBody:
+*       required: true
+*       content:
+*         application/json:
+*           schema:
+*             $ref: '#/components/schemas/productSchema'
+*     responses:
+*       200:
+*         description: The product was successfully deleted.
+*         content:
+*           application/json:
+*             schema:
+*               $ref: '#/components/schemas/productSchema'
+*       404:
+*         description: The specified product ID does not exist.
+*       500:
+*          description: Some server error
+*/
+
+
 productRoute.delete("/delete/:productID",async(req,res)=>{
     const {productID}=req.params
     try {
