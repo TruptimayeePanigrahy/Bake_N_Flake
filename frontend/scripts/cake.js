@@ -10,10 +10,10 @@ let baseURL=`https://handsome-nightshirt-cow.cyclic.app//product/`
 
 
 
-fetchandrendercard(`?page=1`);
+fetchandrendercard(`page=1`);
 //fetchandrendercard(`?q=${search.value}`);
 function fetchandrendercard(queryParamstring=null){
-    fetch(`${baseURL}${queryParamstring ? queryParamstring:""}`)
+    fetch(`${baseURL}${queryParamstring ? `?${queryParamstring}`:""}`)
     //fetch(`${baseURL}?q=cup`)
     .then((res)=>{
         // console.log(res)
@@ -28,6 +28,45 @@ function fetchandrendercard(queryParamstring=null){
         showpagination(totalCount,12);
         display(data.products)
         console.log(data)
+        
+        // url setting
+
+         // Get the current URL
+        //  let url = new URL(window.location.href);
+        //  console.log(url)
+
+        // // Set the filter value
+        // if(filt.value!==""){
+        //     const searchParams = new URLSearchParams(url.search);
+        //     let x=queryParamstring.split("&")[1].split("=");
+        //     console.log("x",x)
+        //     searchParams.set('category', filt.value);
+        //     searchParams.set('page', x[1]);
+
+        //      // Update the URL with the modified search parameters
+        //  url.search = searchParams.toString();
+
+        //  // Replace the current URL with the updated URL
+        //  window.history.replaceState(null, '', url.toString());
+        // }else{
+        //     const searchParams = new URLSearchParams(url.search);
+
+        //     let x=queryParamstring.split("=");
+        //     url.searchParams.delete('page');
+           
+            
+        //    // searchParams.set(x[0],Number(x[1]))
+        //    searchParams.set('page', x[1]);
+        //    console.log(searchParams)
+        //     url.search = searchParams.toString();
+        //     url.searchParams.delete('category');
+        //     window.history.replaceState(null, '', url.toString());
+        //     console.log(url)
+
+        //  }
+         
+
+
     })
 }
 
@@ -90,11 +129,44 @@ search.addEventListener("keydown",(e)=>{
 
 filt.addEventListener("change",()=>{
     if(filt.value==""){
-    fetchandrendercard(`?_page=${1}`)
+            // Get the current URL
+         let url = new URL(window.location.href);
+            const searchParams = new URLSearchParams(url.search);
+
+            let x=queryParamstring.split("=");
+            url.searchParams.delete('page');
+           
+            
+           // searchParams.set(x[0],Number(x[1]))
+           searchParams.set('page', x[1]);
+           console.log(searchParams)
+            url.search = searchParams.toString();
+            url.searchParams.delete('category');
+            window.history.replaceState(null, '', url.toString());
+            console.log(url)
+
+    fetchandrendercard(`page=${1}`)
     
     }
     else{
-       fetchandrendercard(`?category=${filt.value}&page=${1}`)
+         // Get the current URL
+         let url = new URL(window.location.href);
+         console.log(url)
+
+        // Set the filter value
+        
+            const searchParams = new URLSearchParams(url.search);
+            // let x=queryParamstring.split("&")[1].split("=");
+            // console.log("x",x)
+            searchParams.set('category', filt.value);
+            searchParams.set('page', 1);
+
+             // Update the URL with the modified search parameters
+         url.search = searchParams.toString();
+
+         // Replace the current URL with the updated URL
+         window.history.replaceState(null, '', url.toString());
+       fetchandrendercard(`category=${filt.value}&page=${1}`)
     }
 });   
 
@@ -137,22 +209,22 @@ function showpagination(totalitems,x){
             id=dataid;
             console.log(id)
             if(filt.value==""){
-            fetchandrendercard(`?page=${id}`)
+            fetchandrendercard(`page=${id}`)
             }
             else if(filt.value=="pastry"){
-                fetchandrendercard(`?category=${filt.value}&page=${id}`)
+                fetchandrendercard(`category=${filt.value}&page=${id}`)
             }
             else if(filt.value=="cupcake"){
-                fetchandrendercard(`?category=${filt.value}&page=${id}`)
+                fetchandrendercard(`category=${filt.value}&page=${id}`)
             }
             else if(filt.value=="Half Cake"){
-                fetchandrendercard(`?category=${filt.value}&page=${id}`)
+                fetchandrendercard(`category=${filt.value}&page=${id}`)
             }
             else if(filt.value=="Fondant Cake"){
-                fetchandrendercard(`?category=${filt.value}&page=${id}`)
+                fetchandrendercard(`category=${filt.value}&page=${id}`)
             }
             else if(filt.value=="Wedding Cake"){
-                fetchandrendercard(`?category=${filt.value}&page=${id}`)
+                fetchandrendercard(`category=${filt.value}&page=${id}`)
             }
             
  })
