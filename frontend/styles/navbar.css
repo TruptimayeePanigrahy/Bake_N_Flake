@@ -50,8 +50,82 @@
         display: block;
     }
     
-   
+    #card{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap:20px;
+        width:70%;
+        /* border: 1px solid red; */
+        justify-content: center;
+        margin-top: 30px;
+      }
+      #card>div{
+        padding-bottom: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     
+      }
+      
+      #card>div img{
+        display: flex;
+        width:90%;
+        margin: auto;
+         padding-top:20px;  
+      }
+      #card>div h3{
+        padding-left: 20px;
+      }
+      #card>div p{
+        padding-left: 20px;
+      }
+      #sortp{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        /* margin-bottom: 20px; */
+        /* margin-left: 380px; */
+        margin-left: 15%;
+        height:30px;
+        width: 200px;
+        border: 1px solid black;
+      }
+
+      #filter{
+        margin-top: 40px;
+        /* margin-bottom: 20px; */
+        margin-left: 15%;
+        height:30px;
+        width: 200px;
+        border: 1px solid black;
+      }
+
+      #detail{
+        display:flex;
+        flex-direction: column;
+        width: 60%;
+        align-items: center;
+        margin-top: 70px;
+    }
+    #name button{
+        /* display: flex; */
+        padding:3% 5% 3% 5%;
+        border-radius: 10px;
+    }
+    #name{
+        margin-top: 20px;
+        margin-left: 30px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        padding-bottom: 20px;
+     }
+
+     .rec{
+        /* border: 1px solid red; */
+        display: flex;
+        flex-wrap: wrap;
+        width: 85%;
+        margin: auto;
+        margin-bottom: 50px;
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width:700px){
@@ -85,6 +159,95 @@
     #small_nav>div>p{
         font-size: 8px;;
     }
+
+    #card{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap:20px;
+        /* border: 1px solid red; */
+        width:70%;
+        
+        justify-content: center;
+        margin-top: 30px;
+      }
+      #card>div{
+        /* border: 1px solid red; */
+        padding-bottom: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+      }
+      
+      #card>div img{
+        display: flex;
+        width:90%;
+        margin: auto;
+         padding-top:20px;  
+      }
+      #card>div h3{
+        padding-left: 20px;
+      }
+      #card>div p{
+        padding-left: 20px;
+      }
+
+      #sortp{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        /* margin-bottom: 20px; */
+        /* margin-left: 380px; */
+        margin-left: 15%;
+        height:30px;
+        width: 200px;
+        border: 1px solid black;
+      }
+
+      #filter{
+        margin-top: 40px;
+        /* margin-bottom: 20px; */
+        margin-left: 15%;
+        height:30px;
+        width: 200px;
+        border: 1px solid black;
+      }
+
+      #detail{
+        display:flex;
+        flex-direction: column;
+        width: 60%;
+        align-items: center;
+        margin-top: 70px;
+    }
+    #name button{
+        /* display: flex; */
+        padding:1% 3% 1% 3%;
+        border-radius: 10px;
+    }
+    
+    #name{
+        margin-top: 20px;
+        margin-left: 30px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        padding-bottom: 20px;
+     }
+     .rec{
+        /* border: 1px solid red; */
+         display: flex; 
+        flex-direction: column;
+        width: 85%;
+        margin: auto;       
+        margin-bottom: 50px;
+        gap:10px 10px;
+        align-items: center;
+
+    }
+    .title{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 180px;
+    }
+    
+    
 }
 
 #navbar{

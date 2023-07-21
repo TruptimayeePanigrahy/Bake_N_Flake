@@ -17,7 +17,7 @@ require("dotenv").config()
 
 
 userRouter.post("/register",async(req,res)=>{
-    const {name,email,pass}=req.body
+    const {name,email,pass,role}=req.body
     try{
         const userpresent=await UserModel.find({email});
         //console.log(userpresent)
