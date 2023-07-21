@@ -34,11 +34,12 @@ cartRoutes.get("/",authenticate,async (req,res) => {
 
 // to add products in cart
 cartRoutes.post("/add",authenticate, async (req,res) => {
-    const {name} = req.body
-    let product = await  CartProductModel.find({name})
+    const {image,name,price,quantity,userID} = req.body
+    let product = await  CartProductModel.find({$and:[{name:name},{userID:userID}]})
+    //console.log(req.body,product)
     if(product.length === 0){
         try {
-            const cartProd = await new CartProductModel(req.body)
+            const cartProd = await new CartProductModel({image,name,price,quantity,userID})
             cartProd.save()
             res.status(200).send({msg:"Product added to cart"})
         } catch (error) {
