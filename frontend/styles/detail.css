@@ -530,8 +530,10 @@
 }
 
 #name button{
+
     /* display: flex; */
     padding:3% 5% 3% 5%;
+
     border-radius: 10px;
 }
 #name p:last-child{
