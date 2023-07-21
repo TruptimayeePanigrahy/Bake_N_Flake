@@ -105,7 +105,7 @@ userRouter.get("/logout",(req,res)=>{
       const user=req.user
       let name=user.name
       let id=user._id
-     let token=jwt.sign({userID:user._id},"masai");
+     let token=jwt.sign({userID:user._id},"masai")
 console.log(token)
       res.send(`<a href="http://127.0.0.1:5501/frontend/html/index.html?userid=${id}&&name=${name}&&token=${token}">Click here to continue</a>`)
  
