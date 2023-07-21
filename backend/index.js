@@ -18,7 +18,11 @@ const {adminrouter}=require("./Routes/admin.route")
 
 require("dotenv").config();
 
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    next() 
+    })
 
 
 
@@ -42,7 +46,7 @@ const razorpayInstance = new Razorpay({
 //app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/success.html'))
+    res.sendFile(path.join(__dirname, '../frontend/html/success.html'))
 })
 
 app.post('/createOrder', (req, res)=>{
