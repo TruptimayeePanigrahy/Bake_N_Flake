@@ -90,7 +90,7 @@ const options={
         },
         servers:[
             {
-                url:"http://localhost:8080"
+                url:"https://handsome-nightshirt-cow.cyclic.app"
             }
         ]
     },
