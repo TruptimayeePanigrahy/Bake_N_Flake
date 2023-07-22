@@ -6,7 +6,9 @@ const app=express();
 app.use(express.json());
 app.use(cors())
 const http=require('http');
-const  connection  = require('./db');
+const connection = require('./db');
+const swaggerJSdoc=require("swagger-jsdoc")
+const swaggerUI=require("swagger-ui-express")
 
 const {productRoute}=require('./Routes/product.routes')
 const {cartRoutes}=require("./Routes/cart.routes")
@@ -78,6 +80,30 @@ app.post('/verifyOrder', (req, res)=>{
 });
 
 // ************************************************************************************************//
+
+const options={
+    definition:{
+        openapi:"3.0.0",
+        info:{
+            title:"Learning Swagger",
+            version:"1.0.0"
+        },
+        servers:[
+            {
+                url:"http://localhost:8080"
+            }
+        ]
+    },
+    apis:["./Routes/*.js"]
+}
+
+//specification
+const swaggerSpec= swaggerJSdoc(options)
+//building UI
+app.use("/documentation",swaggerUI.serve,swaggerUI.setup(swaggerSpec))
+
+
+
 app.use("/product",productRoute)
 app.use("/admin",adminrouter)
 app.use("/users",userRouter)
