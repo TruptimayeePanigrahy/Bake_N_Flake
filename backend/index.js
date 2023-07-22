@@ -6,7 +6,9 @@ const app=express();
 app.use(express.json());
 app.use(cors())
 const http=require('http');
-const  connection  = require('./db');
+const connection = require('./db');
+const swaggerJSdoc=require("swagger-jsdoc")
+const swaggerUI=require("swagger-ui-express")
 
 const {productRoute}=require('./Routes/product.routes')
 const {cartRoutes}=require("./Routes/cart.routes")
@@ -18,7 +20,11 @@ const {adminrouter}=require("./Routes/admin.route")
 
 require("dotenv").config();
 
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    next() 
+    })
 
 
 
@@ -42,7 +48,7 @@ const razorpayInstance = new Razorpay({
 //app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/success.html'))
+    res.sendFile(path.join(__dirname, '../frontend/html/success.html'))
 })
 
 app.post('/createOrder', (req, res)=>{
@@ -74,6 +80,30 @@ app.post('/verifyOrder', (req, res)=>{
 });
 
 // ************************************************************************************************//
+
+const options={
+    definition:{
+        openapi:"3.0.0",
+        info:{
+            title:"Learning Swagger",
+            version:"1.0.0"
+        },
+        servers:[
+            {
+                url:"https://handsome-nightshirt-cow.cyclic.app"
+            }
+        ]
+    },
+    apis:["./Routes/*.js"]
+}
+
+//specification
+const swaggerSpec= swaggerJSdoc(options)
+//building UI
+app.use("/documentation",swaggerUI.serve,swaggerUI.setup(swaggerSpec))
+
+
+
 app.use("/product",productRoute)
 app.use("/admin",adminrouter)
 app.use("/users",userRouter)

@@ -1,16 +1,22 @@
+
 *{
     margin:0px;
     padding:0px;
     font-family:  "Roboto", sans-serif;
     background-color: white;
 }
+#body{
+
+    width:100%;
+}
+
 
 #navbar{
-    
     width:100%;
     height:80px;
     
 }
+
 /* s-nav css */
 #s-nav{
     
@@ -377,37 +383,6 @@
 
 
 
-/* append cards  */
-
-#card{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap:20px;
-    /* border: 1px solid red; */
-    width:70%;
-    margin: auto;
-    margin-top: 30px;
-  }
-  #card>div{
-    /* border: 1px solid red; */
-    padding-bottom: 20px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
-  }
-  
-  #card>div img{
-    display: flex;
-    width:90%;
-    margin: auto;
-     padding-top:20px;  
-  }
-  #card>div h3{
-    padding-left: 20px;
-  }
-  #card>div p{
-    padding-left: 20px;
-  }
-
   #heading{
     text-align: center;
     font-size:22px;
@@ -555,15 +530,18 @@
 }
 
 #name button{
-    padding:10px 80px 10px 80px;
+
+    /* display: flex; */
+    padding:3% 5% 3% 5%;
+
     border-radius: 10px;
 }
 #name p:last-child{
     margin-bottom: 30px;
 }
 #name button:nth-child(8){
-    margin-left: 30px;
-    margin-right: 50px;
+    margin-left: 5%;
+    margin-right: 4%;
     background-color: pink;
     border: none;
 }
