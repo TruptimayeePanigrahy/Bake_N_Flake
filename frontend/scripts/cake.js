@@ -10,53 +10,22 @@ let baseURL=`https://handsome-nightshirt-cow.cyclic.app//product/`
 
 
 
-fetchandrendercard(`?page=1`);
-//fetchandrendercard(`?q=${search.value}`);
-function fetchandrendercard(queryParamstring=null){
-    fetch(`${baseURL}${queryParamstring ? queryParamstring:""}`)
-    //fetch(`${baseURL}?q=cup`)
+fetchandrendercard();
+
+function fetchandrendercard(){
+    let url = new URL(window.location.href);
+    
+    fetch(`${baseURL}${url.search ? url.search:""}`)
+    
     .then((res)=>{
-        // console.log(res)
-        // let totalCount=res["Total"];
-        // console.log("total",totalCount);
         
         return res.json()})
     .then((data)=>{
         Gdata=data.products;
         let totalCount=data["Total"];
-        console.log("total",totalCount);
+       
         showpagination(totalCount,12);
         display(data.products)
-        // console.log(data)
-        // console.log(queryParamstring.split("&")[0].split("="))
-        // // url setting
-        //  // Get the current URL
-        //  const url = new URL(window.location.href);
-        //  console.log(filt.value)
-        // // Get the existing search parameters
-        // const searchParams = new URLSearchParams(url.search);
-
-        // // Set the filter value
-        // if(filt.value!==""){
-        //     searchParams.set('category', filt.value);
-        //     searchParams.set('page', 1);
-
-        //      // Update the URL with the modified search parameters
-        //  url.search = searchParams.toString();
-
-        //  // Replace the current URL with the updated URL
-        //  window.history.replaceState(null, '', url.toString());
-        // }else if(filt.value==""){
-        //     const searchParams = new URLSearchParams(url.search);
-        //     searchParams.set('', '');
-        //     window.history.replaceState(null, '', url.toString());
-        //     console.log(url)
-
-        // }
-         
-
-        
-      
     })
 }
 
@@ -75,7 +44,7 @@ let c_size=document.getElementById('c-number')
             c_size.innerText=res.length;
         }
        
-        console.log(res)
+        
     })
 
 
@@ -105,12 +74,21 @@ function display(data){
 
 search.addEventListener("keydown",(e)=>{
     if (e.key == "Enter" && search.value != "") {
-        //location.href = 'pages/results/results.html';
-        //searchQuery = searchBar.value;
-        //console.log(searchQuery);
         e.preventDefault()
-        console.log("hi");
-        fetchandrendercard(`?q=${search.value}`);
+         // Get the current URL
+         let url = new URL(window.location.href);
+         const searchParams = new URLSearchParams(url.search);
+
+         
+         url.searchParams.delete('page');
+        searchParams.set('q', search.value);
+        searchParams.set('page', 1);
+        
+         url.search = searchParams.toString();
+         url.searchParams.delete('category');
+         filt.value=""
+         window.history.replaceState(null, '', url.toString());
+        fetchandrendercard();
     }
     
 })
@@ -119,11 +97,46 @@ search.addEventListener("keydown",(e)=>{
 
 filt.addEventListener("change",()=>{
     if(filt.value==""){
-    fetchandrendercard(`?_page=${1}`)
+            // Get the current URL
+            let url = new URL(window.location.href);
+            const searchParams = new URLSearchParams(url.search);
+
+            
+            url.searchParams.delete('page');
+            url.searchParams.delete('q');
+           
+            
+           
+           searchParams.set('page', 1);
+           console.log(searchParams)
+            url.search = searchParams.toString();
+            url.searchParams.delete('category');
+            window.history.replaceState(null, '', url.toString());
+            
+
+    fetchandrendercard()
     
     }
     else{
-       fetchandrendercard(`?category=${filt.value}&page=${1}`)
+         // Get the current URL
+         let url = new URL(window.location.href);
+         
+
+        // Set the filter value
+        
+            const searchParams = new URLSearchParams(url.search);
+            
+
+            searchParams.set('category', filt.value);
+            searchParams.set('page', 1);
+
+             // Update the URL with the modified search parameters
+         url.search = searchParams.toString();
+         url.searchParams.delete('q');
+         search.value=""
+         // Replace the current URL with the updated URL
+         window.history.replaceState(null, '', url.toString());
+       fetchandrendercard()
     }
 });   
 
@@ -164,26 +177,47 @@ function showpagination(totalitems,x){
         x.addEventListener("click",(e)=>{
             let dataid=e.target.dataset.id;
             id=dataid;
-            console.log(id)
+            
             if(filt.value==""){
-            fetchandrendercard(`?page=${id}`)
+
+                  // Get the current URL
+         let url = new URL(window.location.href);
+         const searchParams = new URLSearchParams(url.search);
+
+         
+         url.searchParams.delete('page');
+        
+         
+        
+        searchParams.set('page', id);
+        
+         url.search = searchParams.toString();
+         url.searchParams.delete('category');
+         window.history.replaceState(null, '', url.toString());
+         
+            fetchandrendercard()
             }
-            else if(filt.value=="pastry"){
-               
-                fetchandrendercard(`?category=${filt.value}&page=${id}`)
+            else if(filt.value !==""){
+                // Get the current URL
+         let url = new URL(window.location.href);
+         console.log(url)
+
+        // Set the filter value
+        
+            const searchParams = new URLSearchParams(url.search);
+            // let x=queryParamstring.split("&")[1].split("=");
+            // console.log("x",x)
+            searchParams.set('category', filt.value);
+            searchParams.set('page', id);
+
+             // Update the URL with the modified search parameters
+         url.search = searchParams.toString();
+
+         // Replace the current URL with the updated URL
+         window.history.replaceState(null, '', url.toString());
+                fetchandrendercard()
             }
-            else if(filt.value=="cupcake"){
-                fetchandrendercard(`?category=${filt.value}&page=${id}`)
-            }
-            else if(filt.value=="Half Cake"){
-                fetchandrendercard(`?category=${filt.value}&page=${id}`)
-            }
-            else if(filt.value=="Fondant Cake"){
-                fetchandrendercard(`?category=${filt.value}&page=${id}`)
-            }
-            else if(filt.value=="Wedding Cake"){
-                fetchandrendercard(`?category=${filt.value}&page=${id}`)
-            }
+        
             
  })
 
