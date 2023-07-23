@@ -220,6 +220,7 @@ function showpagination(totalitems,x){
             id=dataid;
             
             if(filt.value==""){
+
                   // Get the current URL
          let url = new URL(window.location.href);
          const searchParams = new URLSearchParams(url.search);
