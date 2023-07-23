@@ -90,6 +90,14 @@
     outline:none;
 }
 
+    #small_nav>div>p{
+        font-size: 10px;;
+    }
+
+#hamburger{
+    display:none;
+}
+
 /* navigation */
 .navigation{
     display:flex;
@@ -725,7 +733,7 @@
     margin-bottom: 20px;
      width:20%;
      /* margin: auto; */
-     margin-left: 800px;
+     margin-left: 40%;
      padding: 10px;
      border-radius: 10px;
   }

@@ -5,6 +5,9 @@
     font-family:  "Roboto", sans-serif;
     background-color: white;
 }
+#body{
+    width:100%;
+}
 @media screen and (max-width:1015px){
     #s-nav{
      
@@ -44,7 +47,100 @@
         display: block;
     }
     
-   
+    #card{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap:20px;
+        width:70%;
+        /* border: 1px solid red; */
+        justify-content: center;
+        margin-top: 30px;
+      }
+      #card>div{
+        padding-bottom: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+      }
+      
+      #card>div img{
+        display: flex;
+        width:90%;
+        margin: auto;
+         padding-top:20px;  
+      }
+      #card>div h3{
+        padding-left: 20px;
+      }
+      #card>div p{
+        padding-left: 20px;
+      }
+      #sortp{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        /* margin-bottom: 20px; */
+        /* margin-left: 380px; */
+        margin-left: 15%;
+        height:30px;
+        width: 200px;
+        border: 1px solid black;
+      }
+
+      #filter{
+        margin-top: 40px;
+        /* margin-bottom: 20px; */
+        margin-left: 15%;
+        height:30px;
+        width: 200px;
+        border: 1px solid black;
+      }
+      #button-wrapper{
+        /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+        margin-top: 20px;
+        margin-bottom: 20px;
+         width:20%;
+         /* margin: auto; */
+         margin-left: 40%;
+         padding: 10px;
+         border-radius: 10px;
+      }
+      #detail{
+        display:flex;
+        flex-direction: column;
+        width: 60%;
+        align-items: center;
+        margin-top: 70px;
+    }
+
+    #name button{
+        /* display: flex; */
+        padding:2% 3% 2% 3%;
+        border-radius: 10px;
+    }
+    #name button:nth-child(8){
+        
+        margin-left: 5%;
+        margin-right: 1%;
+        background-color: pink;
+        border: none;
+    }
+    #name{
+        width:60%;
+        margin-top: 20px;
+        margin-left: 30px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        padding-bottom: 20px;
+     }
+
+     .rec{
+        /* border: 1px solid red; */
+        display: flex;
+        flex-wrap: wrap;gap:10px 10px ;
+        width: 85%;
+        margin: auto;
+        margin-bottom: 50px;
+        justify-content: center;
+    }
     
 }
 
@@ -145,6 +241,7 @@
     }
     
     #name{
+        width:100%;
         margin-top: 20px;
         margin-left: 30px;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -153,6 +250,7 @@
      .rec{
         /* border: 1px solid red; */
          display: flex; 
+        
         flex-direction: column;
         width: 85%;
         margin: auto;       
@@ -433,6 +531,3 @@
     background-color:grey;
     margin-bottom:15px;
 }
-
-
-
