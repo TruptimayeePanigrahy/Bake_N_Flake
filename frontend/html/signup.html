@@ -228,13 +228,7 @@
       email: document.getElementById("email").value,
       pass: document.getElementById("pass").value,
     };
-    
-    if (
-      document.getElementById("name").value != "" &&
-      document.getElementById("email").value != "" &&
-      document.getElementById("pass").value != ""
-    ) {
-      fetch("http://localhost:8080/users/register", {
+    fetch("https://handsome-nightshirt-cow.cyclic.app//users/register", {
       // fetch("http://localhost:8080/users/register",{
       method: "POST",
       headers: {
@@ -243,21 +237,17 @@
       body: JSON.stringify(payload),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-        if(data.msg==="New Users has been registred"||"User Already Present Please Login"){
-          alert(data.msg);
-          window.location.href = "login.html";
-        }else{
-          alert(data.msg)
-        }
-      })
-      .catch((err) => {
-        alert(err.message)
-      });
-     
+      .then((res) => console.log(res))
+      .then((err) => console.log(err));
+    if (
+      document.getElementById("name").value != "" &&
+      document.getElementById("email").value != "" &&
+      document.getElementById("pass").value != ""
+    ) {
+      alert("Signup Successfull");
+      window.location.href = "login.html";
     } else {
-      alert("Enter Details !");
+      alert("Enter email and passaword");
     }
   };
 </script>

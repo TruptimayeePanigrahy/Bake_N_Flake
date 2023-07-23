@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-
+const {UserModel}=require("../models/User.model")
 const {blacklist}=require("../models/blacklist")
 
 const authenticate = async(req, res, next) => {
