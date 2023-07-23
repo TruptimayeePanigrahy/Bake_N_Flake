@@ -6,7 +6,7 @@ let token = localStorage.getItem("token");
 console.log(token)
 fetchAndRender()
 
-fetch(`https://handsome-nightshirt-cow.cyclic.app//cart/`,{
+fetch(`https://handsome-nightshirt-cow.cyclic.app/cart/`,{
         headers:{'content-type':'application/json',
                  'Authorization':`Bearer ${token}`
     }
