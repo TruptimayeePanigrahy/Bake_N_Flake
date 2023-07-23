@@ -6,7 +6,7 @@ let filt=document.getElementById("filter");
 let btnp=document.getElementById("sortp");
 let token=localStorage.getItem("token");
 token ? token=token:token="";
-let baseURL=`http://localhost:8080/product/`
+let baseURL=`https://handsome-nightshirt-cow.cyclic.app/product/`
 
 
 
