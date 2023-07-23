@@ -83,7 +83,15 @@ if(val1==arr1.length) val1=0;
       welcome.innerText="Welcome";
       user.innerText=username;
       btn.innerText="Logout"
-      
+      // btn.addEventListener("click", () => {
+      //    fetch("https://handsome-nightshirt-cow.cyclic.app//users/logout")
+      //      .then(res => res.json())
+      //      .then(data => {
+      //        alert(data.msg);
+      //        localStorage.clear();
+      //        window.location.href = "../html/index.html";
+      //      });
+      //  });
       
     }
     else {
@@ -141,7 +149,6 @@ if (googleName && googleId) {
        .then(data => {
          alert(data.msg);
          localStorage.clear();
-         alert("Logout Successfull!!")
          window.location.href = "../html/index.html";
        });
    });

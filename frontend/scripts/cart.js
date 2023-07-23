@@ -74,11 +74,8 @@ function display(data){
       quantityBtnDiv.setAttribute("class","div2")
       quantityBtnDiv.setAttribute("id","quantityBtnDiv")
       let quantityBtnInc = document.createElement("button")
-    quantityBtnInc.setAttribute("id", "quantityBtnInc")
-    
-    
-    quantityBtnInc.innerText = "+"
-    
+      quantityBtnInc.setAttribute("id","quantityBtnInc")
+      quantityBtnInc.innerText = "+"
       let quantityBtnDec = document.createElement("button")
       quantityBtnDec.setAttribute("id","quantityBtnDec")
       quantityBtnDec.innerText = "-"

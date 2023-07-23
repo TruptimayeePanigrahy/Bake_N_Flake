@@ -58,12 +58,11 @@
 
 #quantityBtnDec,#quantityBtnInc{
     /* padding: 100px 200px; */
-    width:35%;
-    
+    width:35%
 }
 
 #card button, #pay-button{
-    padding: 5%;
+    padding: 3%;
     color: white;
     /* margin: 0 10px 0 0; */
     border: 0px;
@@ -89,26 +88,4 @@
 
 .div2{
     margin: 10px;
-}
-@media screen and (max-width:500px){
-.cart-page{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center
-}
-#cart-page-right{
-    width: 80%;
-}
-#cart-page-left{
-    width: 80%;
-}
-#card button, #pay-button{
-    padding: 5px 10px;
-    color: white;
-    /* margin: 0 10px 0 0; */
-    border: 0px;
-    background-color: rgb(237,33,124);
-}
-
 }
