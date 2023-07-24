@@ -100,8 +100,8 @@ For Backend :Nodejs ,MongoDB ,Express,Redis .
 
 ---
 
-⭐Deployed Link:-
-https://64be07b005b8c91b4e144d5e--brilliant-granita-652060.netlify.app/
+⭐Deployed Link:-https://64be11be846f6e253439558f--chimerical-bublanina-5d3b6c.netlify.app/
+
 --- <br>
 cyclick link:-https://busy-cummerbund-crow.cyclic.app </br></br>
 Api Documentation:-https://handsome-nightshirt-cow.cyclic.app/documentation/
