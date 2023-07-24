@@ -110,7 +110,7 @@ For Backend :Nodejs ,MongoDB ,Express,Redis .
 ---
 
 ⭐Deployed Link:-
-https://mellifluous-faun-cf2e58.netlify.app/
+https://64be07b005b8c91b4e144d5e--brilliant-granita-652060.netlify.app/
 --- <br>
 cyclick link:-https://busy-cummerbund-crow.cyclic.app </br></br>
 Api Documentation:-https://handsome-nightshirt-cow.cyclic.app/documentation/
