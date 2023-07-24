@@ -66,30 +66,21 @@ For Backend :Nodejs ,MongoDB ,Express,Redis .
 
 # Products | SinglePage
 
-![App Screenshot](![Screenshot (133)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/f6fbef37-700e-489a-afc4-f8d0dc8efd1a)
-)
-![App Screenshot]()![Screenshot (134)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/d514d0a2-3630-4376-b41f-c308f7a21da7)
 
-![App Screenshot](![Screenshot (97)](![Screenshot (136)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/b7ffc8ae-3856-4c5e-8782-779d5e6958ac)
-)
-)
+![Screenshot (24)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/960b0e80-b32d-4423-971a-efd386ad8245)
 
-![App Screenshot](![Screenshot (98)](![Screenshot (137)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/ad19e402-4ec8-4d6d-9b9c-16b127b6a2e4)
-)
-)
+![Screenshot (25)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/f590bec7-d834-4918-8233-2366b9d99c1b)
+![Screenshot (26)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/7fb89ccc-ae2a-40a2-8a4d-0bbf2de727fe)
+![Screenshot (27)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/48b9038d-35d0-4361-b48b-670709d43712)
+![Screenshot (28)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/15520f41-73ec-46da-a38c-8942fcfa5a8a)
 
 # Cart 
 
-![App Screenshot](![Screenshot (99)](![Screenshot (138)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/5deb4ed5-4700-4823-926e-6906c861856e)
-)
-)
+![Screenshot (29)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/108ca9bd-8510-425a-a8fc-fbdea6c5cc78)
 
-
-)
 # Payment 
-![App Screenshot](![Screenshot (101)](![Screenshot (139)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/f5a05b9a-79e5-4f16-9891-4dc29a338efb)
-)
-)
+![Screenshot (30)](https://github.com/TruptimayeePanigrahy/cared-lip-7373/assets/119392105/597eecb7-0062-4a3e-9105-18eb4ff1be6c)
+
 # Admin Dashboard
 
 ![App Screenshot](![Screenshot (102)](https://user-images.githubusercontent.com/119392105/236723525-41024eb1-da93-4249-a70a-28ae9b8e6993.png)
